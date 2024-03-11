@@ -1,7 +1,9 @@
 # Getting Started with Create React App
 
 first run:
+
 npm install react 
+
 in the terminal, or u wont be able to run the project :)
 
 ## Available Scripts
