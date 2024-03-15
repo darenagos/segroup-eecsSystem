@@ -1,10 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
+import "./reset.css";
+import Login from "./Components/Login/login";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">Homepage</header>
+    <div>
+      <Login />
     </div>
   );
 }
