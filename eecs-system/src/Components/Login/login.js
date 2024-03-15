@@ -1,8 +1,12 @@
 import React from "react";
 import "./login.css";
 import "../../reset.css";
+// react hook -> History - holds information about the previous page you are in.
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  let navigate = useNavigate();
+
   return (
     <body>
       <div className="login-container">
@@ -17,7 +21,15 @@ function Login() {
               <h2>Password</h2>
               <input type="text" placeholder="" required />
             </div>
-            <button type="submit">Login</button>
+            <button
+              type="submit"
+              onClick={() => {
+                // whenever you want to change routes / redirect to an new page you do navigate()>
+                navigate("student-Homepage");
+              }}
+            >
+              Login
+            </button>
           </div>
         </form>
       </div>
