@@ -1,0 +1,7 @@
+make it so that the user type is always there
+    pass parameters into the navigate, so that the user type is always saved
+
+make all functions, and pages for each of them
+
+implement all of the different side bars and pages to each user types functions
+

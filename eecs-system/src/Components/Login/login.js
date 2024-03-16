@@ -3,29 +3,61 @@ import "./login.css";
 import "../../reset.css";
 // react hook -> History - holds information about the previous page you are in.
 import { useNavigate } from "react-router-dom";
+import { useState} from "react";
 
-function Login() {
+
+const Login = () => {
+
+  // Initialize state for username
+  const [username, setUsername] = useState('');
+  const [password, setPassword]=useState('');
+
+  const handleUsernameInputChange = (e) => {
+    setUsername(e.target.value);
+    
+  };
+  const handlePasswordInputChange = (e) => {
+  setPassword(e.target.value);
+  };
+
+  
+
+  const handleSubmit = (e) => {
+    console.log("submitted")
+    //e.preventDefault();
+    if (username === "student" && password === "student")
+      navigate("student-Homepage")
+      
+    else if (username === "admin" && password === "admin") 
+      navigate("admin-Homepage")
+    else if (username === "technician" && password === "technician") 
+      navigate("technician-Homepage")
+    else{
+      console.log("invalid");
+      alert("not a valid login")
+    }
+    // Print the username
+    console.log('Username:', username);
+    // You can perform further actions here
+  };
   let navigate = useNavigate();
-
   return (
-    <body>
       <div className="login-container">
-        <form action="">
+        <form action="" id="login">
           <div className="login-form">
             <h1>EECSHelp</h1>
             <div className="input-box">
               <h2>Username</h2>
-              <input type="text" placeholder="" required />
+              <input type="text" value={username} onChange={handleUsernameInputChange} placeholder="" required />
             </div>
             <div className="input-box">
               <h2>Password</h2>
-              <input type="text" placeholder="" required />
+              <input type="text"value={password} onChange={handlePasswordInputChange} placeholder="" required />
             </div>
             <button
               type="submit"
               onClick={() => {
-                // whenever you want to change routes / redirect to an new page you do navigate()>
-                navigate("student-Homepage");
+                handleSubmit()
               }}
             >
               Login
@@ -33,7 +65,7 @@ function Login() {
           </div>
         </form>
       </div>
-    </body>
+  
   );
 }
 
