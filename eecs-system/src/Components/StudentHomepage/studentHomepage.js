@@ -1,12 +1,16 @@
 import React from "react";
 import StudentNavbar from "../Navbar/studentNavbar";
+import "./studentHomepage.css";
 
 function StudentHomepage() {
   return (
-    <div>
-      <StudentNavbar />
-      Inside homepage
-    </div>
+    <body>
+      <div>
+        <StudentNavbar />
+        Inside homepage
+        <div className="">iadfa</div>
+      </div>
+    </body>
   );
 }
 
