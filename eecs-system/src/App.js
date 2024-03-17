@@ -19,6 +19,8 @@ function App() {
         <Route exact path="FAQs" Component={Faqs} />
       </Routes>
     </Router>
+
+    // just a comment for testing
   );
 }
 
