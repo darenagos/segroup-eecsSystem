@@ -1,5 +1,5 @@
 import React from "react";
-import StudentNavbar from "../Navbar/studentNavbar";
+import StudentNavbar from "../Navbar/Navbar";
 
 function ServiceStatus() {
   return (

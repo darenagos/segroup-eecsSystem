@@ -21,16 +21,9 @@ h2{
 .login-container{
     width: 38.375rem;
     height: 44.5rem;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     border-radius: 1.25rem;
     background: #FFF;
     text-align: center;
-    
-   
-
 }
 
 .login-form{
@@ -50,7 +43,6 @@ input {
     width: 70%;
     height: 40px;
     padding: 10px 10px 10px 10px;
-
 }
 
 button {
@@ -64,8 +56,5 @@ button {
 
 button:hover {
     background: rgba(198, 195, 189, 0.30);
-
-
-
 }
 

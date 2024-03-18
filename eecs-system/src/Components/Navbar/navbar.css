@@ -1,6 +1,13 @@
-nav {
+#main {
+    height: 171px;
+    flex-shrink: 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    background: #0D3273;
+    color: white;
+}
+
+#main div{
+    margin: 5%;
 }
 
