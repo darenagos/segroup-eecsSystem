@@ -1,6 +1,6 @@
 import React from "react";
 import "./login.css";
-import "../../reset.css";
+
 // react hook -> History - holds information about the previous page you are in.
 import { useNavigate } from "react-router-dom";
 import { useState} from "react";
@@ -8,26 +8,21 @@ import { useState} from "react";
 
 const Login = () => {
 
-  // Initialize state for username
+  let navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword]=useState('');
 
   const handleUsernameInputChange = (e) => {
-    setUsername(e.target.value);
-    
-  };
+    setUsername(e.target.value);};
+
   const handlePasswordInputChange = (e) => {
-  setPassword(e.target.value);
-  };
+  setPassword(e.target.value);};
 
   
 
   const handleSubmit = (e) => {
-    console.log("submitted")
-    //e.preventDefault();
     if (username === "student" && password === "student")
       navigate("student-Homepage")
-      
     else if (username === "admin" && password === "admin") 
       navigate("admin-Homepage")
     else if (username === "technician" && password === "technician") 
@@ -36,11 +31,9 @@ const Login = () => {
       console.log("invalid");
       alert("not a valid login")
     }
-    // Print the username
-    console.log('Username:', username);
-    // You can perform further actions here
   };
-  let navigate = useNavigate();
+  
+
   return (
       <div className="login-container">
         <form action="" id="login">
@@ -54,14 +47,7 @@ const Login = () => {
               <h2>Password</h2>
               <input type="text"value={password} onChange={handlePasswordInputChange} placeholder="" required />
             </div>
-            <button
-              type="submit"
-              onClick={() => {
-                handleSubmit()
-              }}
-            >
-              Login
-            </button>
+            <button type="submit" onClick={() => { handleSubmit() }}>Login</button>
           </div>
         </form>
       </div>
