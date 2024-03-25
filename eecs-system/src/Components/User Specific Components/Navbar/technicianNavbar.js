@@ -8,7 +8,7 @@ import { Link, Outlet } from "react-router-dom";
 function TechnicianNavbar() {
   return (
     <div>
-      <div>
+      <div id = "left">
         <nav>
           <ul>
             <li><Link to="update-faq"><button>Update FAQs</button> </Link></li>
