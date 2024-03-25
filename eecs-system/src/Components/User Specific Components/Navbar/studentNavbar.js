@@ -8,7 +8,7 @@ function StudentNavbar() {
  
   return (
     <div>
-      <div>
+      <div id="left">
         <nav>
           <ul>
             <li><Link to="create-EC"><button>createEC</button> </Link></li>

@@ -6,7 +6,9 @@ function AdminHomepage() {
   return (
     <div>
     <TopNavbar/>
-    <AdminNavbar/>
+    <div id="container">
+      <AdminNavbar/>
+    </div>
     </div>
   );
 }

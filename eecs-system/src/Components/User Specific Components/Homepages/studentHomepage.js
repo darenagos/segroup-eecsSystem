@@ -5,7 +5,9 @@ function StudentHomepage() {
   return (
     <div>
       <TopNavbar/>
+      <div id="container">
       <StudentNavbar/> 
+      </div>
     </div>  
   );
 }

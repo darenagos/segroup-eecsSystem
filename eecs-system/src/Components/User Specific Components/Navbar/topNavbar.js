@@ -3,14 +3,13 @@ import React from 'react';
 
 function TopNavbar() {
     return(
+      <header id = "header">
         <div id ="topnav">
-        
-          <Link to="service-status" class="topNavItem">services </Link> 
+          <Link to="service-status" class="topNavItem"><a>services </a></Link> 
           <Link to="faq-page"class="topNavItem">FAQs</Link>
           <Link to="/"class="topNavItem">Log Out</Link>
-        
-        
         </div>
+      </header>
     )
 }
 
