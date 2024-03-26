@@ -34,7 +34,7 @@ function ManageTickets() {
       <div id="title">
         {title}</div>
       <div id="bottom">
-        {info}<br></br>{details}<button>Close EC</button></div>
+        {info}<br></br>{details}</div>
     </div>
   )
 }
