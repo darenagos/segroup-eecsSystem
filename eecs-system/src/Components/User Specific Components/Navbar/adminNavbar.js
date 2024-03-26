@@ -1,4 +1,5 @@
 import React from "react";
+import "./nav.css"
 import { Link, Outlet } from "react-router-dom";
 
 
@@ -11,8 +12,8 @@ function AdminNavbar() {
       <div id="left">
         <nav>
           <ul>
-            <li><Link to="manage-ECs"><button id = "navButton">Manage ECs</button> </Link></li>
-            <li><Link to="manage-tickets"><button id= "navButton  ">Manage Tickets</button></Link></li>    
+            <li><Link to="manage-ECs"><button>Manage ECs</button> </Link></li>
+            <li><Link to="manage-tickets"><button>Manage Tickets</button></Link></li>    
           </ul>
         </nav>
       </div>

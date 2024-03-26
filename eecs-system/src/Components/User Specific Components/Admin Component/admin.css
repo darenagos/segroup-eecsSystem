@@ -1,0 +1,28 @@
+#title{
+    top:3;
+    background-color: #E2E2E2;
+    border: 5px solid #FFFFFF;
+    border-radius: 10px;
+
+    
+    
+    
+}
+#side{
+    left: 0;
+    top:1;
+    width: 15%;
+    height: 100vh;
+    float: left;
+    background-color: #E2E2E2;
+    border: 5px solid #FFFFFF;
+    border-radius: 10px;
+   
+}
+#bottom {
+    float:top;
+    background-color: #E2E2E2;
+    border: 5px solid #FFFFFF;
+    border-radius: 10px;
+    height: 100vh;
+}
