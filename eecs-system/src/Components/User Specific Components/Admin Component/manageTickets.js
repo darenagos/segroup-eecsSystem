@@ -1,20 +1,42 @@
-import React from 'react'
+import React, {useState} from 'react'
+import "./admin.css"
 
-function manageTickets() {
+const ticketRegistry = require("../../../Managers/TicketRegistry")
+
+function ManageTickets() {
+
+  function updateContent(ticket){
+    setTitle(ticket.name + " : " + ticket.module);
+    setInfo(ticket.title + " - " + ticket.date);
+    setDetails(ticket.details)
+  }
+
+  function getAllTickets() {
+    let tickets = []
+    for (let i = 0; i < ticketRegistry.getLength(); i++) {
+      tickets.push(ticketRegistry.getTicket(i))
+    }
+    return tickets
+  }
+
+
+
+  const [title, setTitle] = useState("Select an EC");
+  const [info, setInfo] = useState("");
+  const [details, setDetails] = useState();
+  const tickets = getAllTickets();
+
   return (
     <div>
-
     <div id = "side">
-        <button> Ticket 1 </button>
-        <button> Ticket 2 </button>
-        <button> Ticket 3 </button>
-        <button> Ticket 4 </button>
+        {tickets.map((ticket) => (<button onClick={() => updateContent(ticket)}>{ticket.name} - {ticket.title}</button>))}
       </div>
-      <div id = "title">Ticket Titles</div>
-      <div id = "bottom">Info on Tickets</div>
-      <button  >change </button>
-      </div>
+      <div id="title">
+        {title}</div>
+      <div id="bottom">
+        {info}<br></br>{details}<button>Close EC</button></div>
+    </div>
   )
 }
 
-export default manageTickets
+export default ManageTickets
