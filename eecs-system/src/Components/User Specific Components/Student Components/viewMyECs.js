@@ -48,7 +48,7 @@ function ViewMyECs() {
                   className="ec-title-button-side"
                   onClick={() => updateContent(ec)}
                 >
-                  {ec.name} - {ec.title}
+                  {ec.title} - {ec.module}
                 </button>
               ))}{" "}
             </div>
