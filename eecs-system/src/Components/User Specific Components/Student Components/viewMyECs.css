@@ -53,7 +53,8 @@ button{
 
 .ec-title-button-side:hover{
     background-color: rgb(255, 255, 255, 0.4);
-    border-left: 4px solid #0D3273;;
+    border-left: 4px solid #0D3273;
+    
 }
 
 
@@ -63,6 +64,7 @@ button{
     align-items: center;
     justify-content: center;
     height: 50px; /* Set the height for the EC title grid item */
+    
     
 }
 
@@ -81,11 +83,16 @@ button{
     border-radius: 30px;
     background-color: rgb(255, 255, 255, 0.4);
     width: 45%;
+
+    
+
 }
 
 .close-ec-button:hover{
     background-color: rgba(13, 50, 115, 1);
     color: white;
+
+    box-shadow: 1px 1px 5px rgba(10, 43, 99, 0.7);
 }
 
 
