@@ -51,36 +51,15 @@ function RaiseTicket() {
       <h2>Raise a New Ticket</h2>
       <form>
         <label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+        <input type="text" name="name" placeholder=" Name" requiredvalue={name} onChange={(e) => setName(e.target.value)}/>
         </label>
         <br />
         <label>
-          <input
-            type="text"
-            name="title"
-            placeholder="Title"
-            required
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+        <input type="text" name="title" placeholder="Title" requiredvalue={title} onChange={(e) => setTitle(e.target.value)}/>
         </label>
         <br />
         <label>
-          <input
-            type="text"
-            name="details"
-            placeholder="Description"
-            required
-            value={details}
-            onChange={(e) => setDetails(e.target.value)}
-          />
+          <input type="text" name="details" placeholder="Description" required value={details} onChange={(e) => setDetails(e.target.value)}/>
         </label>
         <br />
         <input type="submit" value="Submit" onClick={pressSubmit} />
