@@ -6,7 +6,6 @@ const ecRegistry = require('../../../Managers/ECRegistry');
 function ManageECs() {
 
   function updateContent(ec) {
-    console.log(ec.selfCertified)
     if (ec.selfCertified === false){
     setTitle(ec.user.name +" ("+ ec.user.id + ") : " + ec.module);}
     else{
@@ -14,7 +13,6 @@ function ManageECs() {
     }
     setInfo(ec.title + " - " + ec.date);
     setDetails(ec.details)
-    console.log(ecRegistry.getEC(8))
   }
 
   function getAllEC() {
