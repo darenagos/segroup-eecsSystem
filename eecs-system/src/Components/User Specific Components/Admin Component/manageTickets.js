@@ -1,25 +1,22 @@
-import React, {useState} from 'react'
-import "./admin.css"
+import React, { useState } from "react";
+import "./admin.css";
 
-const ticketRegistry = require("../../../Managers/TicketRegistry")
+const ticketRegistry = require("../../../Managers/TicketRegistry");
 
 function ManageTickets() {
-
-  function updateContent(ticket){
+  function updateContent(ticket) {
     setTitle(ticket.name + " : " + ticket.module);
     setInfo(ticket.title + " - " + ticket.date);
-    setDetails(ticket.details)
+    setDetails(ticket.details);
   }
 
   function getAllTickets() {
-    let tickets = []
+    let tickets = [];
     for (let i = 0; i < ticketRegistry.getLength(); i++) {
-      tickets.push(ticketRegistry.getTicket(i))
+      tickets.push(ticketRegistry.getTicket(i));
     }
-    return tickets
+    return tickets;
   }
-
-
 
   const [title, setTitle] = useState("Select an EC");
   const [info, setInfo] = useState("");
@@ -28,15 +25,33 @@ function ManageTickets() {
 
   return (
     <div>
-    <div id = "side">
-        {tickets.map((ticket) => (<button onClick={() => updateContent(ticket)}>{ticket.name} - {ticket.title}</button>))}
+      <div className="padding-grid">
+        <div className="grid-container">
+          <div className="grid-row-span-2">
+            <div className="box">
+              <a>List of Tickets: </a>
+              <br></br>
+              {tickets.map((ticket) => (
+                <button
+                  className="ec-title-button-side"
+                  onClick={() => updateContent(ticket)}
+                >
+                  {ticket.name} - {ticket.title}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="ec-title grid-col-span-2 box">{title}</div>
+          <div className="ec-content grid-col-span-2 box">
+            {info}
+            <br></br>
+            {details}
+          </div>
+        </div>
       </div>
-      <div id="title">
-        {title}</div>
-      <div id="bottom">
-        {info}<br></br>{details}</div>
     </div>
-  )
+  );
 }
 
-export default ManageTickets
+export default ManageTickets;

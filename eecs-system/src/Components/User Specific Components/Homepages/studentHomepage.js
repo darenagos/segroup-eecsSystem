@@ -1,14 +1,12 @@
 import StudentNavbar from "../Navbar/studentNavbar";
-import TopNavbar from "../Navbar/topNavbar"
+import TopNavbar from "../Navbar/topNavbar";
 
 function StudentHomepage() {
   return (
     <div>
-      <TopNavbar/>
-      <div id="container">
-      <StudentNavbar/> 
-      </div>
-    </div>  
+      <TopNavbar />
+      <StudentNavbar />
+    </div>
   );
 }
 

@@ -3,9 +3,6 @@ import "../../../reset.css";
 import "./nav.css";
 import { Link, Outlet } from "react-router-dom";
 
-// ive called this student navbar because im not sure if admins and technicians will have the same
-// links when they click the nav bar options.
-
 function AdminNavbar() {
   return (
     <div>
