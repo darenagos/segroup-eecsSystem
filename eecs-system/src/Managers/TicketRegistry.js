@@ -7,8 +7,8 @@ class TicketRegistry {
         return TicketRegistry.instance
     }
 
-   addTicket(ec){
-    this.data.push(ec)
+   addTicket(ticket){
+    this.data.push(ticket)
    }
    getLength(){
     console.log(this.data.length)

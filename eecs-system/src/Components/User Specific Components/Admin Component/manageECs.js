@@ -9,7 +9,7 @@ function ManageECs() {
     setTitle(ec.name + " : " + ec.module);
     setInfo(ec.title + " - " + ec.date);
     setDetails(ec.details)
-    console.log(ecRegistry.getEC(0))
+    console.log(ecRegistry.getEC(8))
   }
 
   function getAllEC() {

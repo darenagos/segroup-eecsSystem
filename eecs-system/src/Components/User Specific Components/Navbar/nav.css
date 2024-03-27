@@ -18,7 +18,7 @@ h1 {
 #center {
     width: 100%;
     background-color: antiquewhite;
-    height: 100vh;
+    height: 90vh;
 }
 
 .topNavItem {
@@ -34,7 +34,7 @@ h1 {
 
 #left {
     width: 15%;
-    height: 100vh; /* Set height to 100% of the viewport height */
+    height: 90vh; /* Set height to 100% of the viewport height */
     background-color: plum  ;
     float:left;
     color: white;
@@ -46,6 +46,8 @@ h1 {
     text-align: right;
     color:white;
     text-decoration: none;
+    height: 10vh;
+
 }
 
 button{

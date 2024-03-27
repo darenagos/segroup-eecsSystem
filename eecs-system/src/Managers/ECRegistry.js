@@ -7,12 +7,13 @@ class ECRegistry {
         return ECRegistry.instance
     }
 
-   addEC(ec){
-    this.data.push(ec)
-   }
-   getLength(){
-    console.log(this.data.length)
-    return this.data.length;
+    async addEC(ec){
+     this.data.push(ec)
+    }
+   
+    getLength(){
+      console.log(this.data.length)
+      return this.data.length;
    }
 
    getEC(index){
