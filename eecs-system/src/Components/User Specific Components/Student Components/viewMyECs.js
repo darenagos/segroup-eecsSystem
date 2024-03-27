@@ -15,7 +15,7 @@ function ViewMyECs() {
     console.log("starting loop")
     for (let i=0; i<allEcs.length; i++){
       console.log(i)
-      if (allEcs[i].userID === currentUserManager.getCurrent().id){
+      if (allEcs[i].user.id === currentUserManager.getCurrent().id){
         myEcs.push(allEcs[i])
       }
       else
@@ -29,9 +29,10 @@ function ViewMyECs() {
   }
 
   function updateContent(ec) {
-    setTitle(ec.name + " : " + ec.module);
+    console.log("ec user:" , ec.user)
+    setTitle(ec.user.id + " : " + ec.module);
     setInfo(ec.title + " - " + ec.date);
-    setDetails(ec.details)
+    setDetails(ec.details)  
   }
 
   const [title, setTitle] = useState("Select an EC");
@@ -42,7 +43,7 @@ function ViewMyECs() {
   return (
     <div>
       <div id="side">
-    {myEcs.map((ec) => (<button onClick={() => updateContent(ec)}>{ec.name} - {ec.title}</button>))} </div>
+    {myEcs.map((ec) => (<button onClick={() => updateContent(ec)}>{ec.user.name} - {ec.title}</button>))} </div>
     <div id="title">
         {title}</div>
       <div id="bottom">

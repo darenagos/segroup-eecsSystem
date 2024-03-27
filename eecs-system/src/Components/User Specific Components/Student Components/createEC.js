@@ -7,9 +7,8 @@ const ecRegistry = require("../../../Managers/ECRegistry")
 const currentUserManager = require("../../../Managers/CurrentUserManager")
 
 class EC {
-  constructor(name,userID, module, title, date, selfCertified, details){
-    this.name = name;
-    this.userID = userID
+  constructor(user, module, title, date, selfCertified, details){
+    this.user = user;
     this.module = module;
     this.date = date;
     this.title = title;
@@ -22,17 +21,17 @@ function CreateEC() {
   const pressSubmit = async (event) => {
     event.preventDefault();
 
-    await ecRegistry.addEC(new EC(name,  currentUserManager.getCurrent().id, "module",title, Date(),   details, "Other"));
+    await ecRegistry.addEC(new EC(currentUserManager.getCurrent(),module ,title, Date(),   details, ));
     Array.from(document.querySelectorAll("input")).forEach(
       (input) => (input.value = "")
     );
-    
+    setSelfCertified(false)
     
   }
 
-  const [name, setName] = useState("");
+  const [module, setModule] = useState("");
   const handleNameInputChange = (e) => {
-    setName(e.target.value);
+    setModule(e.target.value);
   };
 
   const [title, setTitle] = useState("");
@@ -45,6 +44,12 @@ function CreateEC() {
     setDetails(e.target.value);
   };
 
+  const [selfCertified, setSelfCertified] = useState(false);
+  const handleSelfCertifiedInputChange = (e) => { // If 
+    setSelfCertified(e.target.value);
+  };
+
+
   
   return (
     <div>
@@ -53,11 +58,11 @@ function CreateEC() {
         <label>
           <input
             type="text"
-            name="name"
-            placeholder="Name"
+            name="module"
+            placeholder="Module"
             required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={module}
+            onChange={(e) => setModule(e.target.value)}
           />
         </label>
         <br />
@@ -82,6 +87,15 @@ function CreateEC() {
           />
         </label>
         <br />
+        <label>Self Certified?
+          <input
+            type = "checkbox"
+            name = "selfCertified"
+            value = {selfCertified}
+            checked={selfCertified}
+            onChange={handleSelfCertifiedInputChange}
+          />
+        </label>
         <input type="submit" value="Submit" onClick={pressSubmit} />
       </form>
     </div>
