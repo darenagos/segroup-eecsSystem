@@ -26,7 +26,8 @@ function ViewMyECs() {
   }
 
   function updateContent(ec) {
-    setTitle(ec.name + " : " + ec.module);
+    console.log("ec user:", ec.user);
+    setTitle(ec.user.id + " : " + ec.module);
     setInfo(ec.title + " - " + ec.date);
     setDetails(ec.details);
   }
@@ -38,34 +39,19 @@ function ViewMyECs() {
 
   return (
     <div>
-      <div className="padding-grid">
-        <div className="grid-container">
-          <div className="grid-row-span-2">
-            <div className="box">
-              <a>List of ECs:</a>
-              <br></br>
-              {myEcs.map((ec) => (
-                <button
-                  className="ec-title-button-side"
-                  onClick={() => updateContent(ec)}
-                >
-                  {ec.name} - {ec.title}
-                </button>
-              ))}{" "}
-            </div>
-          </div>
-
-          <div className="ec-title grid-col-span-2 box">{title}</div>
-          <div className="ec-content grid-col-span-2 box">
-            {info}
-            <br></br>
-            {details}
-            <button className="close-ec-button grid-col-span-2">
-              Close EC
-            </button>
-          </div>
-          {/* <div>fds</div> */}
-        </div>
+      <div id="side">
+        {myEcs.map((ec) => (
+          <button onClick={() => updateContent(ec)}>
+            {ec.name} - {ec.title}
+          </button>
+        ))}{" "}
+      </div>
+      <div id="title">{title}</div>
+      <div id="bottom">
+        {info}
+        <br></br>
+        {details}
+        <button>Close EC</button>
       </div>
     </div>
   );

@@ -6,7 +6,12 @@ const ecRegistry = require('../../../Managers/ECRegistry');
 function ManageECs() {
 
   function updateContent(ec) {
-    setTitle(ec.name + " : " + ec.module);
+    console.log(ec.selfCertified)
+    if (ec.selfCertified === false){
+    setTitle(ec.user.name +" ("+ ec.user.id + ") : " + ec.module);}
+    else{
+      setTitle(ec.user.name +" ("+ ec.user.id + ") : " + ec.module + " - SELF CERTIFIED");
+    }
     setInfo(ec.title + " - " + ec.date);
     setDetails(ec.details)
     console.log(ecRegistry.getEC(8))
@@ -28,7 +33,7 @@ function ManageECs() {
   return (
     <div>
       <div id="side">
-        {ecs.map((ec) => (<button onClick={() => updateContent(ec)}>{ec.name} - {ec.title}</button>))} </div>
+        {ecs.map((ec) => (<button onClick={() => updateContent(ec)}>{ec.user.name} - {ec.title}</button>))} </div>
       <div id="title">
         {title}</div>
       <div id="bottom">
