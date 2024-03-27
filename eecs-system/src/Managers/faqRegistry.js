@@ -25,3 +25,6 @@ class faq{
         this.answer = answer
     }
 }
+const faqRegistry = new FaqRegistry();
+//add to registry
+module.exports = faqRegistry;
