@@ -7,7 +7,7 @@ const ecRegistry = require("../../../Managers/ECRegistry")
 const currentUserManager = require("../../../Managers/CurrentUserManager")
 
 class EC {
-  constructor(user, module, title, date, selfCertified, details){
+  constructor(user, module, title, date, details, selfCertified){
     this.user = user;
     this.module = module;
     this.date = date;
@@ -20,7 +20,7 @@ class EC {
 function CreateEC() {
   const pressSubmit = async (event) => {
     event.preventDefault();
-    await ecRegistry.addEC(new EC(currentUserManager.getCurrent(),module ,title, Date(), details, false));
+    await ecRegistry.addEC(new EC(currentUserManager.getCurrent(),module ,title, Date(), details, selfCertified));
     //await console.log(ecRegistry.getEC(-1).details)
     await setSelfCertified(false)
     
