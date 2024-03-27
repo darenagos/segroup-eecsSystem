@@ -1,3 +1,5 @@
+// would be run as a singleton - serverside
+
 class ECRegistry {
     constructor(){
         if(!ECRegistry.instance) {
@@ -9,6 +11,7 @@ class ECRegistry {
 
     async addEC(ec){
      this.data.push(ec)
+     console.log(JSON.stringify(this))
     }
    
     getLength(){

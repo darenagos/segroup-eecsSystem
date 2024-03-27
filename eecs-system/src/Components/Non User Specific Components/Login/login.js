@@ -5,6 +5,9 @@ import "./login.css";
 import { useNavigate } from "react-router-dom";
 import { useState} from "react";
 
+const currentUserManager = require("./../../../Managers/CurrentUserManager")
+const userRegistry = require("./../../../Managers/UserRegistry")
+
 
 const Login = () => {
 
@@ -18,20 +21,33 @@ const Login = () => {
   const handlePasswordInputChange = (e) => {
   setPassword(e.target.value);};
 
-  
-
-  const handleSubmit = (e) => {
-    if (username === "student" && password === "student")
-      navigate("student-Homepage")
-    else if (username === "admin" && password === "admin") 
-      navigate("admin-Homepage")
-    else if (username === "technician" && password === "technician") 
-      navigate("technician-Homepage")
-    else{
-      console.log("invalid");
-      alert("not a valid login")
+  const validateUser = async (username, password) => {
+    const user = userRegistry.findUserByUsername(username)
+    console.log(userRegistry.findUserByUsername(username))
+    if (!user === false){
+      if (user.password === password){
+        navigateUser(user)
+      }
+      else{
+        return ("incorrect Password")
+      }
+      
     }
-  };
+    return (`User ${username} does not exist`)
+  }
+
+  const navigateUser = async (user) => {
+    
+      navigate(`${user.userType}-Homepage`)
+      
+  }
+
+  const handleSubmit = async (e) => {
+    const error = await validateUser(username, password)
+    await console.log(error)
+    
+    }
+  
   
 
   return (
