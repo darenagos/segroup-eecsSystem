@@ -22,7 +22,7 @@ function CreateEC() {
   const pressSubmit = async (event) => {
     event.preventDefault();
 
-    await ecRegistry.addEC(new EC(name,  currentUserManager.getCurrent(), "module",title, Date(),   details, "Other"));
+    await ecRegistry.addEC(new EC(name,  currentUserManager.getCurrent().id, "module",title, Date(),   details, "Other"));
     Array.from(document.querySelectorAll("input")).forEach(
       (input) => (input.value = "")
     );

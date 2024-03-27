@@ -35,8 +35,10 @@ const Login = () => {
   };
 
   const navigateUser = async (user) => {
-    currentUserManager.setUser(user);
-    navigate(`${user.userType}-Homepage`);
+    console.log(user)
+    await currentUserManager.setUser(user);
+    console.log("Current User id:", currentUserManager.getCurrent().id)
+    await navigate(`${user.userType}-Homepage`);
   };
 
   const handleSubmit = async (e) => {

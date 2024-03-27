@@ -22,6 +22,9 @@ class ECRegistry {
    getEC(index){
     return this.data[index];
    }
+   getAllECs(){
+    return this.data;
+   }
 }
 
 class EC {

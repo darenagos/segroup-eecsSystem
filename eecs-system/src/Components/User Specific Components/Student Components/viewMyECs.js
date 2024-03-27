@@ -1,13 +1,54 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-function viewMyECs() {
+
+const ecRegistry = require("../../../Managers/ECRegistry")
+const currentUserManager = require("../../../Managers/CurrentUserManager")
+
+function ViewMyECs() {
+  
 
   function getMyEcs(){
-
+    const allEcs = ecRegistry.getAllECs();
+    console.log("Current User id:", currentUserManager.getCurrent().id)
+    console.log(allEcs)
+    let myEcs = []
+    console.log("starting loop")
+    for (let i=0; i<allEcs.length; i++){
+      console.log(i)
+      if (allEcs[i].userID === currentUserManager.getCurrent().id){
+        myEcs.push(allEcs[i])
+      }
+      else
+      {
+        console.log(allEcs[i].userID)
+      }
+    }
+    console.log("end loop")
+    console.log(myEcs)
+    return myEcs; 
   }
+
+  function updateContent(ec) {
+    setTitle(ec.name + " : " + ec.module);
+    setInfo(ec.title + " - " + ec.date);
+    setDetails(ec.details)
+  }
+
+  const [title, setTitle] = useState("Select an EC");
+  const [info, setInfo] = useState("");
+  const [details, setDetails] = useState();
+  const myEcs = getMyEcs();
+
   return (
-    <div>viewMyECs</div>
+    <div>
+      <div id="side">
+    {myEcs.map((ec) => (<button onClick={() => updateContent(ec)}>{ec.name} - {ec.title}</button>))} </div>
+    <div id="title">
+        {title}</div>
+      <div id="bottom">
+        {info}<br></br>{details}<button>Close EC</button></div>
+    </div>
   )
 }
 
-export default viewMyECs
+export default ViewMyECs
