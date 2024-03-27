@@ -8,26 +8,24 @@ const currentUserManager = require("../../../Managers/CurrentUserManager");
 function ViewMyECs() {
   function getMyEcs() {
     const allEcs = ecRegistry.getAllECs();
-    console.log("Current User id:", currentUserManager.getCurrent().id);
-    console.log(allEcs);
     let myEcs = [];
-    console.log("starting loop");
     for (let i = 0; i < allEcs.length; i++) {
-      console.log(i);
       if (allEcs[i].user.id === currentUserManager.getCurrent().id) {
         myEcs.push(allEcs[i]);
       } else {
         console.log(allEcs[i].userID);
       }
     }
-    console.log("end loop");
-    console.log(myEcs);
     return myEcs;
   }
 
   function updateContent(ec) {
     console.log("ec user:", ec.user);
-    setTitle(ec.user.id + " : " + ec.module);
+    if (ec.selfCertified === false){
+      setTitle(ec.user.name +" ("+ ec.user.id + ") : " + ec.module);}
+      else{
+        setTitle(ec.user.name +" ("+ ec.user.id + ") : " + ec.module + " - SELF CERTIFIED");
+      }
     setInfo(ec.title + " - " + ec.date);
     setDetails(ec.details);
   }
@@ -50,7 +48,7 @@ function ViewMyECs() {
                   className="ec-title-button-side"
                   onClick={() => updateContent(ec)}
                 >
-                  {ec.name} - {ec.title}
+                  {ec.title} - {ec.module}
                 </button>
               ))}{" "}
             </div>

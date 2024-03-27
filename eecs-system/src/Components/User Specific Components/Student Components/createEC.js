@@ -20,13 +20,13 @@ class EC {
 function CreateEC() {
   const pressSubmit = async (event) => {
     event.preventDefault();
-
-    await ecRegistry.addEC(new EC(currentUserManager.getCurrent(),module ,title, Date(),   details, ));
+    await ecRegistry.addEC(new EC(currentUserManager.getCurrent(),module ,title, Date(), details, false));
+    //await console.log(ecRegistry.getEC(-1).details)
+    await setSelfCertified(false)
+    
     Array.from(document.querySelectorAll("input")).forEach(
       (input) => (input.value = "")
     );
-    setSelfCertified(false)
-    
   }
 
   const [module, setModule] = useState("");
@@ -46,7 +46,7 @@ function CreateEC() {
 
   const [selfCertified, setSelfCertified] = useState(false);
   const handleSelfCertifiedInputChange = (e) => { // If 
-    setSelfCertified(e.target.value);
+    setSelfCertified(!selfCertified);
   };
 
 
