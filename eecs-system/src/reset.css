@@ -19,3 +19,11 @@
     height: auto;
     word-spacing: inherit;
 }
+
+
+button {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
