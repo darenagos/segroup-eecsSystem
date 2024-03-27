@@ -3,11 +3,13 @@ import "../../../reset.css";
 import "./createEC.css";
 //import EC from "../../../Managers/ECRegistry"
 
-const ecRegistry = require("../../../Managers/ECRegistry");
+const ecRegistry = require("../../../Managers/ECRegistry")
+const currentUserManager = require("../../../Managers/CurrentUserManager")
 
 class EC {
-  constructor(name, module, title, date, selfCertified, details) {
+  constructor(name,userID, module, title, date, selfCertified, details){
     this.name = name;
+    this.userID = userID
     this.module = module;
     this.date = date;
     this.title = title;
@@ -20,11 +22,13 @@ function CreateEC() {
   const pressSubmit = async (event) => {
     event.preventDefault();
 
-    await ecRegistry.addEC(new EC(name, new Date(), title, details, "Other"));
+    await ecRegistry.addEC(new EC(name,  currentUserManager.getCurrent(), "module",title, Date(),   details, "Other"));
     Array.from(document.querySelectorAll("input")).forEach(
       (input) => (input.value = "")
     );
-  };
+    
+    
+  }
 
   const [name, setName] = useState("");
   const handleNameInputChange = (e) => {
@@ -41,6 +45,7 @@ function CreateEC() {
     setDetails(e.target.value);
   };
 
+  
   return (
     <div>
       <h2>Log a New Claim</h2>
