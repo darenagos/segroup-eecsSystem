@@ -41,7 +41,7 @@ function CreateEC() {
   };
 
   const [details, setDetails] = useState("");
-  const handleDetailsInputChange = (e) => {
+  const handleDetailsInputChange = (e) => { // If 
     setDetails(e.target.value);
   };
 
@@ -51,30 +51,32 @@ function CreateEC() {
       <h2>Log a New Claim</h2>
       <form>
         <label>
-          Name:
           <input
             type="text"
             name="name"
+            placeholder="Name"
+            required
             value={name}
-            onChange={handleNameInputChange}
+            onChange={(e) => setName(e.target.value)}
           />
         </label>
         <br />
         <label>
-          Title:
           <input
             type="text"
             name="title"
+            placeholder="Title"
+            required
             value={title}
             onChange={handleTitleInputChange}
           />
         </label>
         <br />
         <label>
-          Details:
           <input
             type="text"
             name="details"
+            placeholder="Description"
             value={details}
             onChange={handleDetailsInputChange}
           />
