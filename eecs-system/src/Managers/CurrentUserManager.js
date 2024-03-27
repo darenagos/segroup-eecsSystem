@@ -13,6 +13,10 @@ class CurrentUserManager {
         this.user = user
     }
 
+    getCurrent(){
+        return this.user
+    }
+
 }
 
   class User{

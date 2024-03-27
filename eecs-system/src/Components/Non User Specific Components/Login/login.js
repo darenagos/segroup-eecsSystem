@@ -37,7 +37,7 @@ const Login = () => {
   }
 
   const navigateUser = async (user) => {
-    
+      currentUserManager.setUser(user)
       navigate(`${user.userType}-Homepage`)
       
   }
