@@ -20,7 +20,7 @@ class EC {
 function CreateEC() {
   const pressSubmit = async (event) => {
     event.preventDefault();
-    await ecRegistry.addEC(new EC(currentUserManager.getCurrent(),module ,title, Date(), details, selfCertified));
+    await ecRegistry.addEC(new EC(currentUserManager.getCurrent(),module ,title, Date(), details, false));
     //await console.log(ecRegistry.getEC(-1).details)
     await setSelfCertified(false)
     
