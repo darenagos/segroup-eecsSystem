@@ -14,7 +14,7 @@ function ViewMyECs() {
     console.log("starting loop");
     for (let i = 0; i < allEcs.length; i++) {
       console.log(i);
-      if (allEcs[i].userID === currentUserManager.getCurrent().id) {
+      if (allEcs[i].user.id === currentUserManager.getCurrent().id) {
         myEcs.push(allEcs[i]);
       } else {
         console.log(allEcs[i].userID);
