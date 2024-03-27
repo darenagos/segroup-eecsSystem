@@ -1,3 +1,12 @@
+:root{
+    --blue: #0D3273;
+    --pink: #C10077;
+    --grey: #E2E2E2;
+    --purple: #7B0E72;
+
+}
+
+
 body {
     position: relative;
     width: auto;
@@ -21,36 +30,73 @@ h1 {
     height: 90vh;
 }
 
+
 .topNavItem {
     padding: 20px;
+    text-decoration: none;
+    font-size: large;
+    margin-left: 1%;
 }
 
-#navButton {
+.topNavItem:hover{
+    color: rgba(255, 255, 255, 0.60);
+}
+
+/* #navButton {
     border-radius: 50px;
-    background: pink;
+    background: var(--purple);
     box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.25);
     width: 100%;
-}
+   
+} */
 
 #left {
-    width: 15%;
+    width: 20%;
     height: 90vh; /* Set height to 100% of the viewport height */
-    background-color: plum  ;
+    background-color: var(--pink);
     float:left;
     color: white;
+    text-align: center;
+}
+
+.move-left{
+    margin-right: auto; /* Push items to the right */
+    font-size: x-large;
+ 
 }
 
 #topnav{
-    background-color: #232579;
+    background-color: var(--blue);
     padding: 20px;
     text-align: right;
     color:white;
-    text-decoration: none;
     height: 10vh;
+   
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
 
 }
 
+
+
 button{
-    width: 100%;
+    width: 80%;
     background-color: transparent;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: larger;
+
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+
+}
+
+button:hover{
+    background-color: var(--purple);
 }
