@@ -1,3 +1,5 @@
+// ran as a singleton server side
+
 class TicketRegistry {
     constructor(){
         if(!TicketRegistry.instance) {
