@@ -1,0 +1,64 @@
+:root{
+    --blue: #0D3273;
+    --pink: #C10077;
+    --grey: #E2E2E2;
+    --purple: #7B0E72;
+
+}
+
+h2{
+    /* reset css */
+    margin: 0;
+    padding: 0;
+ 
+}
+
+.welcome-heading{
+    padding-top: 5vh;
+}
+
+.home-ec-heading {
+    text-align: center;
+    margin-top: 5vh;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    
+}
+
+.home-ticket-heading {
+    text-align: center;
+    margin-top: 5vh;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    
+
+}
+
+
+.padding-grid-home{
+
+    padding: 5%;
+    margin-left: 20%;
+
+
+}
+.grid-container-home{
+    display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: auto;
+   min-height: 60vh;
+   min-width: none;
+   gap: 2%;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size:medium;
+
+}
+
+.homeBox{
+    background: rgba(198, 195, 189, 0.5);
+    padding: 5%;
+    border-radius: 15px;
+    height: 100%;
+    border: 3px solid var(--pink);
+
+}

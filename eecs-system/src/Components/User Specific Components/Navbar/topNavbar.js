@@ -3,11 +3,19 @@ import React from "react";
 import "../../../reset.css";
 import "./nav.css";
 
+const currentUserManager = require("../../../Managers/CurrentUserManager");
+
 function TopNavbar() {
   return (
     <header id="header">
       <div id="topnav">
         <a className="move-left">EECSHelp</a>
+        <Link
+          to={`/${currentUserManager.getCurrent().userType}/home`}
+          className="topNavItem"
+        >
+          <a>Home </a>
+        </Link>
         <Link to="service-status" className="topNavItem">
           <a>services </a>
         </Link>
