@@ -48,9 +48,9 @@ function DisplayHomePageInformation() {
 function Home() {
   return (
     <div>
-      <h2 className="welcome-heading">{`Hello ${
+      <h2 className="welcome-heading">{`Hello, ${
         currentUserManager.getCurrent().name
-      }`}</h2>
+      }! 👋`}</h2>
       {DisplayHomePageInformation()}
     </div>
   );

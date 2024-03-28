@@ -15,6 +15,9 @@ h2{
 
 .welcome-heading{
     padding-top: 5vh;
+    font-size: x-large;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
 }
 
 .home-ec-heading {
@@ -48,17 +51,19 @@ h2{
    grid-template-rows: auto;
    min-height: 60vh;
    min-width: none;
-   gap: 2%;
+   gap: 5%;
    font-family: Arial, Helvetica, sans-serif;
    font-size:medium;
+   
 
 }
 
 .homeBox{
-    background: rgba(198, 195, 189, 0.5);
+    background: rgba(245, 242, 238);
     padding: 5%;
     border-radius: 15px;
     height: 100%;
     border: 3px solid var(--pink);
+    box-shadow: 0px 1px 8px rgb(96, 93, 90);
 
 }
