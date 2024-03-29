@@ -36,24 +36,24 @@ function CreateEC() {
   }
 
   const [module, setModule] = useState("");
-  const handleNameInputChange = (e) => {
-    setModule(e.target.value);
-  };
+  // const handleNameInputChange = (e) => {
+  //   setModule(e.target.value);
+  // };
 
   const [title, setTitle] = useState("");
-  const handleTitleInputChange = (e) => {
-    setTitle(e.target.value);
-  };
+  // const handleTitleInputChange = (e) => {
+  //   setTitle(e.target.value);
+  // };
 
   const [details, setDetails] = useState("");
-  const handleDetailsInputChange = (e) => { // If 
-    setDetails(e.target.value);
-  };
+  // const handleDetailsInputChange = (e) => { // If 
+  //   setDetails(e.target.value);
+  // };
 
   const [selfCertified, setSelfCertified] = useState(false);
-  const handleSelfCertifiedInputChange = (e) => { // If 
-    setSelfCertified(!selfCertified);
-  };
+  // const handleSelfCertifiedInputChange = (e) => { // If 
+  //   setSelfCertified(!selfCertified);
+  // };
 
 
   
@@ -79,7 +79,7 @@ function CreateEC() {
             placeholder="Title"
             required
             value={title}
-            onChange={handleTitleInputChange}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </label>
         <br />
@@ -90,7 +90,7 @@ function CreateEC() {
             placeholder="Description"
             {...selfCertified ? null : { required: true }}
             value={details}
-            onChange={handleDetailsInputChange}
+            onChange={(e)=>setDetails(e.target.value)}
           />
         </label>
         <br />
@@ -100,7 +100,7 @@ function CreateEC() {
             name = "selfCertified"
             value = {selfCertified}
             checked={selfCertified}
-            onChange={handleSelfCertifiedInputChange}
+            onChange={(e)=>setSelfCertified(!selfCertified)}
           />
         </label>
         <input type="submit" value="Submit" onClick={pressSubmit} />
