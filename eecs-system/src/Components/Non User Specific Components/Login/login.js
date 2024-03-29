@@ -12,6 +12,8 @@ const Login = () => {
   let navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [showErrorPopup, setShowErrorPopup] = useState(false);
 
   const handleUsernameInputChange = (e) => {
     setUsername(e.target.value);
@@ -28,10 +30,16 @@ const Login = () => {
       if (user.password === password) {
         navigateUser(user);
       } else {
-        return "incorrect Password";
+        if (password === ""){setError("Fill in all fields.")}
+        else{setError("Incorrect Password.")}
+        setShowErrorPopup(true);
+        return error;
       }
     }
-    return `User ${username} does not exist`;
+    if(username === ""|password === ""){setError("Fill in all fields.")}
+    else{setError(`User ${username} does not exist.`)}
+    setShowErrorPopup(true);
+    return error;
   };
 
   const navigateUser = async (user) => {
@@ -64,7 +72,7 @@ const Login = () => {
           <div className="input-box">
             <h2>Password</h2>
             <input
-              type="text"
+              type="password"
               value={password}
               onChange={handlePasswordInputChange}
               placeholder=""
@@ -82,6 +90,12 @@ const Login = () => {
           </button>
         </div>
       </form>
+      {showErrorPopup && (
+        <div className="error-popup">
+          <p>{error}</p>
+          <button className="close" onClick={() => setShowErrorPopup(false)}>Close</button>
+        </div>
+      )}
     </div>
   );
 };

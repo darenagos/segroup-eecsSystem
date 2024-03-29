@@ -32,7 +32,12 @@ h2{
    
 
 }
-
+.error-popup button {
+    transition: transform 0.3s ease;
+}
+.error-popup button:hover {
+    transform: scale(1.1);
+  }
 .login-form{
     padding: 10%;
     
