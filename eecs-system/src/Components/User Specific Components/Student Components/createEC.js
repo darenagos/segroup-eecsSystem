@@ -19,14 +19,20 @@ class EC {
 
 function CreateEC() {
   const pressSubmit = async (event) => {
-    event.preventDefault();
-    await ecRegistry.addEC(new EC(currentUserManager.getCurrent(),module ,title, Date(), details, selfCertified));
-    //await console.log(ecRegistry.getEC(-1).details)
-    await setSelfCertified(false)
-    
-    Array.from(document.querySelectorAll("input")).forEach(
-      (input) => (input.value = "")
-    );
+    if (title != "" & module != "" & (details != "" | selfCertified)){
+      event.preventDefault();
+      await ecRegistry.addEC(new EC(currentUserManager.getCurrent(),module ,title, Date(), details, selfCertified));
+      //await console.log(ecRegistry.getEC(-1).details)
+      // await setSelfCertified(false)
+      
+      Array.from(document.querySelectorAll("input")).forEach(
+        (input) => (input.value = "")
+      );
+      setModule("")
+      setTitle("")
+      setDetails("")
+      setSelfCertified(false)
+    }
   }
 
   const [module, setModule] = useState("");
@@ -82,6 +88,7 @@ function CreateEC() {
             type="text"
             name="details"
             placeholder="Description"
+            {...selfCertified ? null : { required: true }}
             value={details}
             onChange={handleDetailsInputChange}
           />
