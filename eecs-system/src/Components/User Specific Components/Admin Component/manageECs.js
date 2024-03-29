@@ -5,6 +5,11 @@ const ecRegistry = require("../../../Managers/ECRegistry");
 
 function ManageECs() {
   function updateContent(ec) {
+
+    Array.from(document.querySelectorAll("input")).forEach(
+      (input) => (input.value = "")
+    );
+
     if (ec.selfCertified === false) {
       setTitle(ec.user.name + " (" + ec.user.id + ") : " + ec.module);
     } else {
@@ -17,9 +22,9 @@ function ManageECs() {
           " - SELF CERTIFIED"
       );
     }
-    setInfo(ec.title + " - " + ec.date);
+    setInfo(ec.title + " - "  + ec.date);
     setDetails(ec.details);
-    console.log(ecRegistry.getEC(8));
+    setCurrentEc(ec)
   }
 
   function getAllEC() {
@@ -30,10 +35,28 @@ function ManageECs() {
     return ecs;
   }
 
-  const [title, setTitle] = useState("Select an EC");
-  const [info, setInfo] = useState("");
-  const [details, setDetails] = useState();
+  function handleDelete(){
+    console.log("delete")
+    // let newCurrent
+    // if (ecRegistry.getEcIndex(currentEc) < ecRegistry.getLength -1){
+    //   newCurrent = ecRegistry.getEC(ecRegistry.getEcIndex(currentEc) +1)
+    // }
+    // else{
+    //   newCurrent = ecRegistry.getEC(ecRegistry.getEcIndex(currentEc) -1)
+    // }
+    // ecRegistry.deleteEc(currentEc)
+    // setCurrentEc(newCurrent)
+    // updateContent(newCurrent)
+  }
+
+  const ec0 = ecRegistry.getEC(1)
+  const [title, setTitle] = useState(ec0.user.name + " (" + ec0.user.id + ") : " + ec0.module);
+  const [info, setInfo] = useState(ec0.title + " - "  + ec0.date);
+  const [details, setDetails] = useState(ec0.details);
+  const [currentEc, setCurrentEc] = useState(ec0)
   const ecs = getAllEC();
+
+  
 
   return (
     <div>
@@ -58,7 +81,12 @@ function ManageECs() {
           <div className="ec-content grid-col-span-2 box">
             {info}
             <br></br>
+            Details<br></br>
             {details}
+            <input type="text" ></input>
+            <button
+              onClick= {handleDelete}
+            >Delete EC</button>
           </div>
         </div>
       </div>

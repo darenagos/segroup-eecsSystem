@@ -1,6 +1,7 @@
 // would be run as a singleton - serverside
 
 const userRegistry = require ("./UserRegistry.js")
+
 class ECRegistry {
     constructor(){
         if(!ECRegistry.instance) {
@@ -12,23 +13,49 @@ class ECRegistry {
 
     async addEC(ec){
      this.data.push(ec)
-     console.log(JSON.stringify(this))
+    this.save()
+    }
+
+    save(){
+       localStorage.getItem("ECRegistry", JSON.stringify(this))
+    }
+
+    load(){
+        try {
+           const data = localStorage.setItem("ECRegistry", "utf8");
+            if (data) {
+                this.data = JSON.parse(data);
+            }
+        } catch (err) {
+            console.error("Error loading data:", err);
+        }  
     }
    
-    getLength(){
-      console.log(this.data.length)
+   getLength(){
       return this.data.length;
    }
 
    getEC(index){
+   this.load()
     return this.data[index];
    }
    getAllECs(){
+   this.load()
     return this.data;
+   }
+
+   deleteEc(ec){
+    this.data.splice(this.data.indexOf(ec), 1)
+   this.save()
+   }
+
+   getEcIndex(ec){
+   this.load()
+    return this.data.indexOf(ec)
    }
 }
 
-class EC {
+ class EC {
     constructor(user, module, title, date, selfCertified, details){
       this.user = user;
       this.module = module;
