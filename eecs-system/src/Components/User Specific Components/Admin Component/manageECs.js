@@ -37,16 +37,16 @@ function ManageECs() {
 
   function handleDelete(){
     console.log("delete")
-    // let newCurrent
-    // if (ecRegistry.getEcIndex(currentEc) < ecRegistry.getLength -1){
-    //   newCurrent = ecRegistry.getEC(ecRegistry.getEcIndex(currentEc) +1)
-    // }
-    // else{
-    //   newCurrent = ecRegistry.getEC(ecRegistry.getEcIndex(currentEc) -1)
-    // }
-    // ecRegistry.deleteEc(currentEc)
-    // setCurrentEc(newCurrent)
-    // updateContent(newCurrent)
+    let newCurrent
+    if (ecRegistry.getEcIndex(currentEc) < ecRegistry.getLength -1){
+      newCurrent = ecRegistry.getEC(ecRegistry.getEcIndex(currentEc) +1)
+    }
+    else{
+      newCurrent = ecRegistry.getEC(ecRegistry.getEcIndex(currentEc) -1)
+    }
+    ecRegistry.deleteEc(currentEc)
+    setCurrentEc(newCurrent)
+    updateContent(newCurrent)
   }
 
   const ec0 = ecRegistry.getEC(1)
