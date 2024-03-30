@@ -26,13 +26,17 @@ body {
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    margin-top: 20px;
 }
 
 .ticketform {
     margin-left: 42%;
-    margin-top: 50px;
+    margin-top: 20px;
     max-width: 400px;
     padding: 20px;
+    border: 2px solid #0D3273;
+    border-radius: 10px;
+    background-color: #f8f9fa;
 }
 
 .ticketinput {
@@ -40,6 +44,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid var(--grey);
+    margin-bottom: 7px;
 }
 
 .ticketsubmit {
