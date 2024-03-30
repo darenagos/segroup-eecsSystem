@@ -18,7 +18,7 @@ class Ticket {
 
 function RaiseTicket() {
   const pressSubmit = async (event) => {
-    if (title != "" & details != "" & type != ""){
+    if (title !== "" & details !== "" & type !== ""){
       event.preventDefault();
 
       await ticketRegistry.addTicket(new Ticket(currentUserManager.getCurrent(),  Date(), title, type, details));
@@ -44,21 +44,21 @@ function RaiseTicket() {
   
   return (
     <div>
-      <h2>Raise a New Ticket</h2>
-      <form>
-        <label>
-        <input type="text" name="title" placeholder="Title" required value={title} onChange={(e) => setTitle(e.target.value)}/>
+      <h2 class="ticketh2">Raise a New Ticket</h2>
+      <form class="ticketform">
+      <label>
+        <input class="ticketinput" type="text" name="title" placeholder="Title" required value={title} onChange={(e) => setTitle(e.target.value)}/>
         </label>
         <br />
         <label>
-        <input type="text" name="type" placeholder="Type" required value={type} onChange={(e) => setType(e.target.value)}/>
+        <input class="ticketinput" type="text" name="type" placeholder="Type" required value={type} onChange={(e) => setType(e.target.value)}/>
         </label>
         <br />
         <label>
-          <input type="text" name="details" placeholder="Details" required value={details} onChange={(e) => setDetails(e.target.value)}/>
+          <input class="ticketinput" type="text" name="details" placeholder="Details" required value={details} onChange={(e) => setDetails(e.target.value)}/>
         </label>
         <br />
-        <input type="submit" value="Submit" onClick={pressSubmit} />
+        <input class="ticketsubmit" type="submit" value="Submit" onClick={pressSubmit} />
       </form>
     </div>
   );

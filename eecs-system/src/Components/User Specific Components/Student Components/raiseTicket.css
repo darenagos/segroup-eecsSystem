@@ -18,7 +18,7 @@ body {
     background-color: var(--grey);
 }
 
-h2 {
+.ticketh2 {
     color: var(--black);
     text-align: left;
     margin-left: 45%;
@@ -28,26 +28,21 @@ h2 {
     line-height: normal;
 }
 
-form {
+.ticketform {
     margin-left: 42%;
     margin-top: 50px;
     max-width: 400px;
     padding: 20px;
 }
 
-label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-input[type="text"] {
+.ticketinput {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid var(--grey);
 }
 
-input[type="submit"] {
+.ticketsubmit {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -57,6 +52,6 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
+.ticketsubmit:hover {
     background-color: var(--purple);
 }
