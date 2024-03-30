@@ -1,7 +1,7 @@
 import React from "react";
 import "./home.css";
 
-const currentUserManager = require("../../../Managers/CurrentUserManager");
+import currentUserManager from "../../../Managers/CurrentUserManager"
 
 function DisplayHomePageInformation() {
   const currentUserType = currentUserManager.getCurrent().userType;

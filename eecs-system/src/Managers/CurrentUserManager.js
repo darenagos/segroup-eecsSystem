@@ -33,4 +33,4 @@ class CurrentUserManager {
 
 const currentUserManager = new CurrentUserManager();
 currentUserManager.setUser(new User("","","","","","guest") )
-module.exports = currentUserManager;
+export default currentUserManager;

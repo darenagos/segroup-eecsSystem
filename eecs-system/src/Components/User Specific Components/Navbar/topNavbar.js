@@ -3,7 +3,7 @@ import React from "react";
 import "../../../reset.css";
 import "./nav.css";
 
-const currentUserManager = require("../../../Managers/CurrentUserManager");
+import currentUserManager from "../../../Managers/CurrentUserManager"
 
 function TopNavbar() {
   return (

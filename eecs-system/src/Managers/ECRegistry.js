@@ -87,4 +87,4 @@ myRegistry.addEC(new EC (userRegistry.findUserByUsername("mo"), "Operating Syste
 myRegistry.addEC(new EC (userRegistry.findUserByUsername("finn"), "Object Oriented Programming", "Join Ai Soc", "Wed 0.01th Arpil",true,"aadsgvbewzrsg4a'aerderbd"))
 myRegistry.addEC(new EC (userRegistry.findUserByUsername("yousuf"), "Web Technology", "Database Crashed", "Mon -4346th Dec",false,"254y bai; aewj "))
 
-module.exports = myRegistry;
+export default myRegistry;

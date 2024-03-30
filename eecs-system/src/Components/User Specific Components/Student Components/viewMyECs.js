@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "../../../reset.css";
 import "./viewMyECs.css";
 
-const ecRegistry = require("../../../Managers/ECRegistry");
-const currentUserManager = require("../../../Managers/CurrentUserManager");
+import ecRegistry from "../../../Managers/ECRegistry"
+import currentUserManager from "../../../Managers/CurrentUserManager"
 
 function ViewMyECs() {
   function getMyEcs() {

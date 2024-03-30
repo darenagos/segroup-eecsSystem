@@ -5,8 +5,8 @@ import "./login.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const currentUserManager = require("./../../../Managers/CurrentUserManager");
-const userRegistry = require("./../../../Managers/UserRegistry");
+import currentUserManager from "./../../../Managers/CurrentUserManager"
+import userRegistry from "./../../../Managers/UserRegistry"
 
 const Login = () => {
   let navigate = useNavigate();

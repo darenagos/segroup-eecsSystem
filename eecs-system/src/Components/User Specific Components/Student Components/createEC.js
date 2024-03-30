@@ -3,8 +3,8 @@ import "../../../reset.css";
 import "./createEC.css";
 //import EC from "../../../Managers/ECRegistry"
 
-const ecRegistry = require("../../../Managers/ECRegistry")
-const currentUserManager = require("../../../Managers/CurrentUserManager")
+import ecRegistry from "../../../Managers/ECRegistry"
+import currentUserManager from"../../../Managers/CurrentUserManager"
 
 class EC {
   constructor(user, module, title, date, details, selfCertified){

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./admin.css";
 
-const ecRegistry = require("../../../Managers/ECRegistry");
+import  ecRegistry  from "../../../Managers/ECRegistry";
 
 function ManageECs() {
   function updateContent(ec) {
@@ -36,13 +36,22 @@ function ManageECs() {
   }
 
   function handleDelete(){
-    console.log("delete")
+    
     let newCurrent
-    if (ecRegistry.getEcIndex(currentEc) < ecRegistry.getLength -1){
-      newCurrent = ecRegistry.getEC(ecRegistry.getEcIndex(currentEc) +1)
+    const currentIndex = ecRegistry.getEcIndex(currentEc)
+    console.log(currentIndex, " - ", ecRegistry.getLength())
+    if (currentIndex == 0 && ecRegistry.getLength()>1){
+      console.log("1")
+      newCurrent = ecRegistry.getEC(currentIndex+1)
+      
+    }
+    else if(currentIndex === ecRegistry.getLength()-1){
+      console.log("delete final")
+      newCurrent = ecRegistry.getEC(currentIndex-1)
     }
     else{
-      newCurrent = ecRegistry.getEC(ecRegistry.getEcIndex(currentEc) -1)
+      console.log("other")
+      newCurrent = ecRegistry.getEC(ecRegistry.getEcIndex(currentEc) +1)
     }
     ecRegistry.deleteEc(currentEc)
     setCurrentEc(newCurrent)
