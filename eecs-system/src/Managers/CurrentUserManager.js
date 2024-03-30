@@ -4,6 +4,7 @@ class CurrentUserManager {
     constructor (){
         if (!CurrentUserManager.instance){
             this.user = []
+            this.load()
             CurrentUserManager.instance = this;
         }
         return CurrentUserManager.instance
@@ -11,10 +12,28 @@ class CurrentUserManager {
 
     setUser(user){
         this.user = user
+        console.log(this.user, "useerrr")
+        this.save()
     }
 
     getCurrent(){
         return this.user
+    }
+
+    save(){
+        console.log("saving user as ", this.user)
+        localStorage.setItem("currentUser", JSON.stringify(this.user))
+    }
+
+    load(){
+        try {
+           const user = localStorage.getItem("currentUser");
+            if (user) {
+                this.user = JSON.parse(user);
+            }
+        } catch (err) {
+            console.error("Error loading data:", err);
+        }  
     }
 
 }
@@ -32,5 +51,5 @@ class CurrentUserManager {
 
 
 const currentUserManager = new CurrentUserManager();
-currentUserManager.setUser(new User("","","","","","guest") )
+
 export default currentUserManager;

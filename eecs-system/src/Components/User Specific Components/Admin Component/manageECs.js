@@ -64,6 +64,7 @@ function ManageECs() {
   const [details, setDetails] = useState(ec0.details);
   const [currentEc, setCurrentEc] = useState(ec0)
   const ecs = getAllEC();
+  console.log(ecs)
 
   
 
