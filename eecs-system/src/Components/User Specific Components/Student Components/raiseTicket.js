@@ -3,23 +3,12 @@ import "../../../reset.css";
 import "./raiseTicket.css";
 //import EC from "../../../Managers/ECRegistry"
 
-const ticketRegistry = require("../../../Managers/TicketRegistry")
-const currentUserManager = require("../../../Managers/CurrentUserManager")
+import ticketRegistry from "../../../Managers/TicketRegistry"
+import currentUserManager from "../../../Managers/CurrentUserManager"
 
-// class Ticket {
-//   constructor(name,userID, module, title, date, details, selfCertified){
-//     this.name = name;
-//     this.userID = userID
-//     this.module = module;
-//     this.date = date;
-//     this.title = title;
-//     this.details = details;
-//     this.selfCertified = selfCertified;
-//   }
-// }
 class Ticket {
-  constructor(name, date, title, type, details){
-    this.name = name;
+  constructor(user, date, title, type, details){
+    this.user = user
     this.date = date;
     this.title = title
     this.type = type

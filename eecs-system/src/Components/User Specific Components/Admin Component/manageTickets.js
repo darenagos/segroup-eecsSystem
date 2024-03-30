@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./admin.css";
 
-const ticketRegistry = require("../../../Managers/TicketRegistry");
+import ticketRegistry from "../../../Managers/TicketRegistry"
 
 function ManageTickets() {
   function updateContent(ticket) {
-    setTitle(ticket.name + " : " + ticket.module);
-    setInfo(ticket.title + " - " + ticket.date);
+    setTitle(ticket.user.name + " : " + ticket.title);
+    setInfo(ticket.type + " - " + ticket.date);
     setDetails(ticket.details);
   }
 
@@ -36,7 +36,7 @@ function ManageTickets() {
                   className="ec-title-button-side"
                   onClick={() => updateContent(ticket)}
                 >
-                  {ticket.name} - {ticket.title}
+                  {ticket.user.name} - {ticket.title}
                 </button>
               ))}
             </div>

@@ -25,6 +25,8 @@ function ManageECs() {
     setInfo(ec.title + " - "  + ec.date);
     setDetails(ec.details);
     setCurrentEc(ec)
+
+    console.log(ecRegistry.getEcIndex(currentEc))
   }
 
   function getAllEC() {
@@ -39,10 +41,10 @@ function ManageECs() {
     
     let newCurrent
     const currentIndex = ecRegistry.getEcIndex(currentEc)
-    console.log(currentIndex, " - ", ecRegistry.getLength())
+    console.log(currentIndex+1, " - ", ecRegistry.getLength())
     if (currentIndex == 0 && ecRegistry.getLength()>1){
       console.log("1")
-      newCurrent = ecRegistry.getEC(currentIndex+1)
+      newCurrent = ecRegistry.getEC(3)
       
     }
     else if(currentIndex === ecRegistry.getLength()-1){
@@ -51,7 +53,7 @@ function ManageECs() {
     }
     else{
       console.log("other")
-      newCurrent = ecRegistry.getEC(ecRegistry.getEcIndex(currentEc) +1)
+      newCurrent = ecRegistry.getEC(currentIndex-1)
     }
     ecRegistry.deleteEc(currentEc)
     setCurrentEc(newCurrent)
@@ -64,7 +66,7 @@ function ManageECs() {
   const [details, setDetails] = useState(ec0.details);
   const [currentEc, setCurrentEc] = useState(ec0)
   const ecs = getAllEC();
-  console.log(ecs)
+  //console.log(ecs)
 
   
 

@@ -46,12 +46,13 @@ class ECRegistry {
    }
 
    deleteEc(ec){
+    console.log("deleting:",ec)
     this.data.splice(this.data.indexOf(ec), 1)
-   this.save()
+    this.save()
    }
 
    getEcIndex(ec){
-   this.load()
+    console.log(ec)
     return this.data.indexOf(ec)
    }
 }
@@ -82,6 +83,7 @@ class User{
 const myRegistry = new ECRegistry();
 
 if (myRegistry.getLength() < 3){
+    myRegistry.data = []
     myRegistry.addEC(new EC (userRegistry.findUserByUsername("isaac"), "Software Engineering", "PC Broke", "Tues 26th March",false,"agadgvdafgaerderbd"))
     myRegistry.addEC(new EC (userRegistry.findUserByUsername("saad"), "GUI", "Github Broke", "Fri 12th March",true,"rhsrjh  elkjhf ali"))
     myRegistry.addEC(new EC (userRegistry.findUserByUsername("luke"), "Linear Algebra", "Train late", "Sat 45th Arpil",false,"afdshaefgvbewzrsg4a'aerderbd"))
