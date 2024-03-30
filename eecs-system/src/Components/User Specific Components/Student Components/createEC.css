@@ -6,3 +6,18 @@ font-style: normal;
 font-weight: 300;
 line-height: normal;
 }
+input[type="checkbox"] {
+    margin-left: 20%;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #cccccc;
+    border: 1px solid #999999;
+    cursor: pointer;
+}
+input[type="checkbox"]:checked {
+    background-image: url('../../../pics/tick.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}

@@ -36,24 +36,10 @@ function CreateEC() {
   }
 
   const [module, setModule] = useState("");
-  // const handleNameInputChange = (e) => {
-  //   setModule(e.target.value);
-  // };
-
   const [title, setTitle] = useState("");
-  // const handleTitleInputChange = (e) => {
-  //   setTitle(e.target.value);
-  // };
-
   const [details, setDetails] = useState("");
-  // const handleDetailsInputChange = (e) => { // If 
-  //   setDetails(e.target.value);
-  // };
-
   const [selfCertified, setSelfCertified] = useState(false);
-  // const handleSelfCertifiedInputChange = (e) => { // If 
-  //   setSelfCertified(!selfCertified);
-  // };
+
 
 
   
