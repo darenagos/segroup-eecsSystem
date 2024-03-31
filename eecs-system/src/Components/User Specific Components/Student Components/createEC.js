@@ -46,7 +46,7 @@ function CreateEC() {
   
   return (
     <div>
-      <h2 class="ticketh2">Log a New Claim</h2>
+      <h2 class="ticketh2"><br></br>Log a New Claim</h2>
       <form class="ticketform">
       <label>
           <input

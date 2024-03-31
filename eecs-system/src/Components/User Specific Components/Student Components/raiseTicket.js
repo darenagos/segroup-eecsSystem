@@ -44,7 +44,7 @@ function RaiseTicket() {
   
   return (
     <div>
-      <h2 class="ticketh2">Raise a New Ticket</h2>
+      <h2 class="ticketh2"><br></br>Raise a New Ticket</h2>
       <form class="ticketform">
       <label>
         <input class="ticketinput" type="text" name="title" placeholder="Title" required value={title} onChange={(e) => setTitle(e.target.value)}/>
