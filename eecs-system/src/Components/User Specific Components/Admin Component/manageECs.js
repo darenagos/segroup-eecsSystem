@@ -4,8 +4,8 @@ import "./admin.css";
 import  ecRegistry  from "../../../Managers/ECRegistry";
 
 function ManageECs() {
-  function updateContent(ec) {
-
+  function updateContent(ec, index) {
+    console.log(index)
     Array.from(document.querySelectorAll("input")).forEach(
       (input) => (input.value = "")
     );
@@ -24,7 +24,9 @@ function ManageECs() {
     }
     setInfo(ec.title + " - "  + ec.date);
     setDetails(ec.details);
-    setCurrentEc(ec)
+    setCurrentEc(index)
+
+    //console.log(ecRegistry.getEcIndex(currentEc))
   }
 
   function getAllEC() {
@@ -38,33 +40,34 @@ function ManageECs() {
   function handleDelete(){
     
     let newCurrent
-    const currentIndex = ecRegistry.getEcIndex(currentEc)
-    console.log(currentIndex, " - ", ecRegistry.getLength())
-    if (currentIndex == 0 && ecRegistry.getLength()>1){
-      console.log("1")
-      newCurrent = ecRegistry.getEC(currentIndex+1)
-      
+    //console.log(currentEc, " - ", ecRegistry.getLength())
+    if (currentEc == 0 && ecRegistry.getLength()>1){
+      console.log("1st in array")
+      newCurrent = 1
+      console.log("new", newCurrent, "old", currentEc)
+      setCurrentEc(newCurrent)
+      updateContent(ecRegistry.getEC(newCurrent), newCurrent)
+      ecRegistry.deleteEc(currentEc)
     }
-    else if(currentIndex === ecRegistry.getLength()-1){
-      console.log("delete final")
-      newCurrent = ecRegistry.getEC(currentIndex-1)
+    else if(ecRegistry.getLength() === 1){
+      alert("Can't delete final EC") 
     }
     else{
       console.log("other")
-      newCurrent = ecRegistry.getEC(ecRegistry.getEcIndex(currentEc) +1)
+      newCurrent = currentEc -1
+      setCurrentEc(newCurrent)
+      updateContent(ecRegistry.getEC(newCurrent), newCurrent)
+      ecRegistry.deleteEc(currentEc)
     }
-    ecRegistry.deleteEc(currentEc)
-    setCurrentEc(newCurrent)
-    updateContent(newCurrent)
   }
 
-  const ec0 = ecRegistry.getEC(1)
+  const ec0 = ecRegistry.getEC(0)
   const [title, setTitle] = useState(ec0.user.name + " (" + ec0.user.id + ") : " + ec0.module);
   const [info, setInfo] = useState(ec0.title + " - "  + ec0.date);
   const [details, setDetails] = useState(ec0.details);
-  const [currentEc, setCurrentEc] = useState(ec0)
+  const [currentEc, setCurrentEc] = useState(0)
   const ecs = getAllEC();
-  console.log(ecs)
+  //console.log(ecs)
 
   
 
@@ -73,16 +76,18 @@ function ManageECs() {
       <div className="padding-grid">
         <div className="grid-container">
           <div className="grid-row-span-2">
-            <div className="box">
+            <div className="box" id = "ecList">
               <a>List of ECs:</a>
               <br></br>
-              {ecs.map((ec) => (
-                <button
+              {ecs.map((ec, index) => (
+                <div key = {index}>
+                <button 
                   className="ec-title-button-side"
-                  onClick={() => updateContent(ec)}
+                  onClick={() => updateContent(ec, index)}
                 >
                   {ec.user.name} - {ec.title}
                 </button>
+                </div>
               ))}{" "}
             </div>
           </div>

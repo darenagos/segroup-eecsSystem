@@ -12,6 +12,7 @@ class TicketRegistry {
         return TicketRegistry.instance
     }
 
+   
     async addTicket(ticket){
      this.data.push(ticket)
      this.save()
@@ -56,6 +57,8 @@ class TicketRegistry {
    this.load()
     return this.data.indexOf(ticket)
    }
+
+
 }
 
 class Ticket {

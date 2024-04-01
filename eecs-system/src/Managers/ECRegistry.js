@@ -45,14 +45,19 @@ class ECRegistry {
     return this.data;
    }
 
-   deleteEc(ec){
-    this.data.splice(this.data.indexOf(ec), 1)
-   this.save()
+   deleteEc(index){
+    this.data.splice(index, 1)
+    this.save()
    }
 
    getEcIndex(ec){
-   this.load()
-    return this.data.indexOf(ec)
+    for (let i = 0; i < this.data.length; i++){
+        if (this.data[i].details === ec.details )
+            console.log(this.data[i].details, "===", ec.details )
+            return i
+        }
+    
+    return -1
    }
 }
 
@@ -82,6 +87,7 @@ class User{
 const myRegistry = new ECRegistry();
 
 if (myRegistry.getLength() < 3){
+    myRegistry.data = []
     myRegistry.addEC(new EC (userRegistry.findUserByUsername("isaac"), "Software Engineering", "PC Broke", "Tues 26th March",false,"agadgvdafgaerderbd"))
     myRegistry.addEC(new EC (userRegistry.findUserByUsername("saad"), "GUI", "Github Broke", "Fri 12th March",true,"rhsrjh  elkjhf ali"))
     myRegistry.addEC(new EC (userRegistry.findUserByUsername("luke"), "Linear Algebra", "Train late", "Sat 45th Arpil",false,"afdshaefgvbewzrsg4a'aerderbd"))
