@@ -1,0 +1,16 @@
+.self {
+    margin-left: 20%;
+    margin-top: 10px;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #cccccc;
+    border: 1px solid #999999;
+    cursor: pointer;
+}
+.self:checked {
+    background-image: url('../../../pics/tick.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 200%;
+}
