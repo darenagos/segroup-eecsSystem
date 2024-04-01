@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../../reset.css";
 import "./createEC.css";
+import "./raiseTicket.css";
 //import EC from "../../../Managers/ECRegistry"
 
 import ecRegistry from "../../../Managers/ECRegistry"
@@ -19,7 +20,7 @@ class EC {
 
 function CreateEC() {
   const pressSubmit = async (event) => {
-    if (title != "" & module != "" & (details != "" | selfCertified)){
+    if (title !== "" & module !== "" & (details !== "" | selfCertified)){
       event.preventDefault();
       await ecRegistry.addEC(new EC(currentUserManager.getCurrent(),module ,title, Date(), details, selfCertified));
       //await console.log(ecRegistry.getEC(-1).details)
@@ -36,33 +37,20 @@ function CreateEC() {
   }
 
   const [module, setModule] = useState("");
-  // const handleNameInputChange = (e) => {
-  //   setModule(e.target.value);
-  // };
-
   const [title, setTitle] = useState("");
-  // const handleTitleInputChange = (e) => {
-  //   setTitle(e.target.value);
-  // };
-
   const [details, setDetails] = useState("");
-  // const handleDetailsInputChange = (e) => { // If 
-  //   setDetails(e.target.value);
-  // };
-
   const [selfCertified, setSelfCertified] = useState(false);
-  // const handleSelfCertifiedInputChange = (e) => { // If 
-  //   setSelfCertified(!selfCertified);
-  // };
+
 
 
   
   return (
     <div>
-      <h2>Log a New Claim</h2>
-      <form>
-        <label>
+      <h2 class="ticketh2"><br></br>Log a New Claim</h2>
+      <form class="ticketform">
+      <label>
           <input
+            class="ticketinput"
             type="text"
             name="module"
             placeholder="Module"
@@ -71,9 +59,9 @@ function CreateEC() {
             onChange={(e) => setModule(e.target.value)}
           />
         </label>
-        <br />
         <label>
           <input
+            class="ticketinput"
             type="text"
             name="title"
             placeholder="Title"
@@ -85,6 +73,7 @@ function CreateEC() {
         <br />
         <label>
           <input
+            class="ticketinput"
             type="text"
             name="details"
             placeholder="Description"
@@ -96,6 +85,7 @@ function CreateEC() {
         <br />
         <label>Self Certified?
           <input
+            class = "self"
             type = "checkbox"
             name = "selfCertified"
             value = {selfCertified}
@@ -103,7 +93,7 @@ function CreateEC() {
             onChange={(e)=>setSelfCertified(!selfCertified)}
           />
         </label>
-        <input type="submit" value="Submit" onClick={pressSubmit} />
+        <input type="submit" class="ticketsubmit" value="Submit" onClick={pressSubmit} />
       </form>
     </div>
   );

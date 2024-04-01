@@ -39,7 +39,7 @@ h1 {
     padding: 20px;
     text-align: right;
     color:white;
-    height: 10vh;
+    height: 7vh;
    
 
     display: flex;
@@ -65,7 +65,7 @@ h1 {
 /* side nav */
 
 #left {
-    width: 20%;
+    width: 15%;
     height: 90vh; /* Set height to 100% of the viewport height */
     background-color: var(--pink);
     float:left;
@@ -90,8 +90,8 @@ h1 {
 button{
     width: 80%;
     background-color: transparent;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     font-size: larger;
 
     border-radius: 10px;

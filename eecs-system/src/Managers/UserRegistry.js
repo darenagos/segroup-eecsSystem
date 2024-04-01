@@ -36,7 +36,7 @@ class User{
 }
 
 const userRegistry = new UserRegistry();
- userRegistry.addUser(new User("Student1","ec12345","student1@qmul.ac.uk","student1","student1","student"))
+userRegistry.addUser(new User("Student1","ec12345","student1@qmul.ac.uk","student1","student1","student"))
 userRegistry.addUser(new User("Student2","ec23456","student2@qmul.ac.uk","student2","student2","student"))
 userRegistry.addUser(new User("Technician QMUL","te12345","technician@qmul.ac.uk","technician","technician","technician"))
 userRegistry.addUser(new User("Admin QMUL","te12345","admin@qmul.ac.uk","admin","admin","admin"))
