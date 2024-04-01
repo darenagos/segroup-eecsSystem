@@ -45,15 +45,19 @@ class ECRegistry {
     return this.data;
    }
 
-   deleteEc(ec){
-    console.log("deleting:",ec)
-    this.data.splice(this.data.indexOf(ec), 1)
+   deleteEc(index){
+    this.data.splice(index, 1)
     this.save()
    }
 
    getEcIndex(ec){
-    console.log(ec)
-    return this.data.indexOf(ec)
+    for (let i = 0; i < this.data.length; i++){
+        if (this.data[i].details === ec.details )
+            console.log(this.data[i].details, "===", ec.details )
+            return i
+        }
+    
+    return -1
    }
 }
 

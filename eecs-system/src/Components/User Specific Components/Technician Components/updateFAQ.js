@@ -1,8 +1,13 @@
 import React from 'react'
 
+
 function updateFAQ() {
+
+  
   return (
-    <div>updateFAQ</div>
+    <div>
+      faq
+    </div>
   )
 }
 

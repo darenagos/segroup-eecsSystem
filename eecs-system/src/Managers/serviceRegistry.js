@@ -2,9 +2,25 @@ class ServiceRegistry{
     constructor() {
         if(!ServiceRegistry.instance){
             this.data=[]
+            this.load()
         }
         return ServiceRegistry.instance
     }
+
+    save(){
+        localStorage.setItem("serviceRegistry", JSON.stringify(this.data))
+     }
+ 
+     load(){
+         try {
+            const data = localStorage.getItem("serviceRegistry");
+             if (data) {
+                 this.data = JSON.parse(data);
+             }
+         } catch (err) {
+             console.error("Error loading data:", err);
+         }  
+     }
 
     getServiceByName(name){
         //can be simplified tbf
@@ -18,19 +34,31 @@ class ServiceRegistry{
 
     addService(service){
         this.data.push(service)
+        this.save()
     }
 
-    getServiceById(index){
+    setService(index, service){
+        this.data[index] = service
+        this.save()
+    }
+
+    getService(index){
         return this.data[index]
     }
 
     getAllServices(){
         return this.data
+        this.save()
+    }
+
+    deleteService(index){
+        this.data.splice(index, 1)
+        this.save()
     }
     
 }
 
-class Service{
+export class Service{
         constructor(name, details, status ){
         this.name = name
         this.status = status

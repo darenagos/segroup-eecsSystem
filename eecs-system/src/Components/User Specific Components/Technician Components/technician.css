@@ -95,5 +95,7 @@ button{
     grid-row: span 2;
 }
 
+#button{width:100%;}
+
 
 
