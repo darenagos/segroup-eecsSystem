@@ -98,7 +98,7 @@ function ManageECs() {
             <br></br>
             Details<br></br>
             {details}
-            <input type="text" ></input>
+            
             <button
               onClick= {handleDelete}
             >Delete EC</button>

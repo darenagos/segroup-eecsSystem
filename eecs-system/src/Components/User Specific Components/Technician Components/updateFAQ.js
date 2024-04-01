@@ -61,8 +61,68 @@ function UpdateFAQ() {
   }
 
   return (
-    <div>updateFAQ</div>
-  )
+    <div id="update_main">
+      <form id="add_form" onSubmit={handleAddFaq}>
+        <input
+          type="text"
+          placeholder="New Question"
+          value={newQuestion}
+          onChange={(e) => setNewQuestion(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="New Answer"
+          value={newAnswer}
+          onChange={(e) => setNewAnswer(e.target.value)}
+        />
+        <button type="submit" className='submit_buttons'>Add FAQ</button>
+      </form>
+      <br />
+      <form id="remove_form" onSubmit={handleRemoveFaq}>
+        <select
+          value={questionToRemove}
+          onChange={(e) => setQuestionToRemove(e.target.value)}
+          className='select_question'
+        >
+          <option value="">Select a question to remove</option>
+          {faqData.map((faq, index) => (
+            <option key={index} value={index}>
+              {faq.Question}
+            </option>
+          ))}
+        </select>
+        <button type="submit" className='submit_buttons'>Remove FAQ</button>
+      </form>
+      <br />
+      <form id="update_form" onSubmit={handleUpdateFAQ}>
+        <select
+          value={questionToUpdate}
+          onChange={(e) => setquestionToUpdate(e.target.value)}
+          className='select_question'
+        >
+          <option value="">Select a question to update</option>
+          {faqData.map((faq, index) => (
+            <option key={index} value={index}>
+              {faq.Question}
+            </option>
+          ))}
+        </select>
+        <input
+          type="text"
+          placeholder="Updated Question"
+          value={updatedQuestion}
+          onChange={(e) => setupdatedQuestion(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Updated Answer"
+          value={updatedAnswer}
+          onChange={(e) => setupdatedAnswer(e.target.value)}
+        />
+        <button type="submit" className='submit_buttons'>Update FAQ</button>
+      </form>
+    </div>
+  );
 }
 
-export default updateFAQ
+export default UpdateFAQ;
