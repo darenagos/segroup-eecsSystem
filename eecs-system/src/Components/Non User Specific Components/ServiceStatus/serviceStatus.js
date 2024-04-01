@@ -4,27 +4,14 @@ import checkImage from './imgaes/check.png';
 import warning from './imgaes/warning.png'
 import none from './imgaes/remove.png'
 
+import myServiceRegistry from "../../../Managers/serviceRegistry";
+
 function ServiceStatus() {  
 
 
-  const data = [
-    {
-    Entry1:"entry 1a",
-    Entry2:"entry 2a",
-    status:"partial"
-  },
-  {
-    Entry1:"entry 1b",
-    Entry2:"entry 2b",
-    status:"full"
-  },
-  {
-    Entry1:"entry 1c",
-    Entry2:"entry 2c",
-    status:"nones"
-  },
+  const data =  myServiceRegistry.getAllServices()
  
-]
+
   return (
     <div id="container">
     <div id="service_header">
@@ -44,8 +31,8 @@ function ServiceStatus() {
             <tr className = "gray">
               <td>
                 <table class = "entry-container">
-                  <tr class="entry1">{service.Entry1} - Odd Index</tr>
-                  <tr class="entry2">{service.Entry2} </tr>
+                  <tr class="entry1">{service.name}</tr>
+                  <tr class="entry2">{service.details} </tr>
                 </table>
                 </td>
               <td>
@@ -65,8 +52,8 @@ function ServiceStatus() {
             <tr>
               <td>
                 <table class = "entry-container">
-                  <tr class="entry1">{service.Entry1} - Even Index</tr>
-                  <tr class="entry2">{service.Entry2} </tr>
+                  <tr class="entry1">{service.name}</tr>
+                  <tr class="entry2">{service.details} </tr>
                 </table>
                 </td>
               <td>
@@ -82,6 +69,8 @@ function ServiceStatus() {
           </tr>
             
           )}
+
+          
 
           
         </div>
