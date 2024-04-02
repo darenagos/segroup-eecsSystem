@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../../../reset.css";
-import "./createEC.css";
 import "./raiseTicket.css";
+import "./createEC.css";
+
 //import EC from "../../../Managers/ECRegistry"
 
 import ecRegistry from "../../../Managers/ECRegistry"
@@ -22,7 +23,7 @@ function CreateEC() {
   const pressSubmit = async (event) => {
     if (title !== "" & module !== "" & (details !== "" | selfCertified)){
       event.preventDefault();
-      await ecRegistry.addEC(new EC(currentUserManager.getCurrent(),module ,title, Date(), details, selfCertified));
+      await ecRegistry.addEC(new EC(currentUserManager.getCurrent(),(otherModule!==""?otherModule:module) ,title, Date(), details, selfCertified));
       //await console.log(ecRegistry.getEC(-1).details)
       // await setSelfCertified(false)
       
@@ -40,7 +41,18 @@ function CreateEC() {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [selfCertified, setSelfCertified] = useState(false);
-
+  const [otherModule, setOtherModule] = useState("")
+  const modules = [
+    "Algorithms and Data Structures",
+    "Databse Systems",
+    "Graphical User Interfaces",
+    "Internet Protocol and Applications",
+    "Operating Systems",
+    "Probability and Matricies",
+    "Software Engineering",
+    "Software Engineering Project",
+    "Other"
+];
 
 
   
@@ -49,16 +61,30 @@ function CreateEC() {
       <h2 class="ticketh2"><br></br>Log a New Claim</h2>
       <form class="ticketform">
       <label>
-          <input
-            class="ticketinput"
-            type="text"
-            name="module"
-            placeholder="Module"
-            required
+          Module:
+          <select
+            className="ticketlist"
             value={module}
-            onChange={(e) => setModule(e.target.value)}
-          />
+            onChange={(e) => {setModule(e.target.value); setOtherModule("")}}
+            required>
+            <option value="">Select a module</option>
+            {modules.map((module) => (
+              <option key={module} value={module}>{module}</option>
+            ))}
+          </select>
         </label>
+        {module === "Other" && (
+          <label>
+            <input
+              className="ticketinput"
+              type="text"
+              name="otherModule"
+              placeholder="Enter other module"
+              value={otherModule}
+              onChange={(e) => {setOtherModule(e.target.value)}}
+            />
+          </label>
+        )}
         <label>
           <input
             class="ticketinput"
