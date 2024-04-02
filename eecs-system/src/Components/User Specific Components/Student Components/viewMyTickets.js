@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import "../../../reset.css";
 import "./viewMyTickets.css";
-import ticketRegistry from "../../../Managers/TicketRegistry"
-import currentUserManager from"../../../Managers/CurrentUserManager"
+import ticketRegistry from "../../../Managers/TicketRegistry";
+import currentUserManager from "../../../Managers/CurrentUserManager";
 
 function ViewMyTickets() {
-  
   function GetMyTickets() {
     const allTickets = ticketRegistry.getAllTickets();
     let myTickets = [];
     for (let i = 0; i < allTickets.length; i++) {
       if (allTickets[i].user.id === currentUserManager.getCurrent().id) {
-          myTickets.push(allTickets[i]);}
-      else {
+        myTickets.push(allTickets[i]);
+      } else {
         console.log(allTickets[i].userID);
       }
     }
@@ -24,10 +23,10 @@ function ViewMyTickets() {
   const [details, setDetails] = useState("");
   const myTickets = GetMyTickets();
 
-  function UpdateContent(ticket) { 
-    setType(ticket.type)
-    setTitle(ticket.title)
-    setDetails(ticket.details)    
+  function UpdateContent(ticket) {
+    setType(ticket.type);
+    setTitle(ticket.title);
+    setDetails(ticket.details);
   }
 
   return (
@@ -35,7 +34,7 @@ function ViewMyTickets() {
       <div className="padding-grid">
         <div className="grid-container">
           <div className="grid-row-span-2">
-            <div className="box">
+            <div className="box-view-tickets">
               <a>List of Tickets:</a>
               <br></br>
               {myTickets.map((ticket) => (
@@ -64,4 +63,4 @@ function ViewMyTickets() {
   );
 }
 
-export default ViewMyTickets
+export default ViewMyTickets;

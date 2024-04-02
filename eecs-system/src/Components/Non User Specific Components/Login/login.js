@@ -5,8 +5,8 @@ import "./login.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import currentUserManager from "./../../../Managers/CurrentUserManager"
-import userRegistry from "./../../../Managers/UserRegistry"
+import currentUserManager from "./../../../Managers/CurrentUserManager";
+import userRegistry from "./../../../Managers/UserRegistry";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -30,14 +30,20 @@ const Login = () => {
       if (user.password === password) {
         navigateUser(user);
       } else {
-        if (password === ""){setError("Fill in all fields.")}
-        else{setError("Incorrect Password.")}
+        if (password === "") {
+          setError("Fill in all fields.");
+        } else {
+          setError("Incorrect Password.");
+        }
         setShowErrorPopup(true);
         return error;
       }
     }
-    if(username === ""|password === ""){setError("Fill in all fields.")}
-    else{setError(`User ${username} does not exist.`)}
+    if ((username === "") | (password === "")) {
+      setError("Fill in all fields.");
+    } else {
+      setError(`User ${username} does not exist.`);
+    }
     setShowErrorPopup(true);
     return error;
   };
@@ -55,47 +61,53 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <form action="" id="login">
-        <div className="login-form">
-          <h1>EECSHelp</h1>
-          <div className="input-box">
-            <h2>Username</h2>
-            <input
-              type="text"
-              value={username}
-              onChange={handleUsernameInputChange}
-              placeholder=""
-              required
-            />
+    <div className="background-login">
+      <div className="grid-login-container">
+        <form action="" id="login">
+          <div className="login-form">
+            <h1>EECSHelp</h1>
+            <div className="input-box">
+              <h2>Username</h2>
+              <input
+                className="input-box"
+                type="text"
+                value={username}
+                onChange={handleUsernameInputChange}
+                placeholder=""
+                required
+              />
+            </div>
+            <div className="input-box">
+              <h2>Password</h2>
+              <input
+                className="input-box"
+                type="password"
+                value={password}
+                onChange={handlePasswordInputChange}
+                placeholder=""
+                required
+              />
+            </div>
+            <button
+              className="button"
+              type="submit"
+              onClick={() => {
+                handleSubmit();
+              }}
+            >
+              Login
+            </button>
           </div>
-          <div className="input-box">
-            <h2>Password</h2>
-            <input
-              type="password"
-              value={password}
-              onChange={handlePasswordInputChange}
-              placeholder=""
-              required
-            />
+        </form>
+        {showErrorPopup && (
+          <div className="error-popup">
+            <p>{error}</p>
+            <button className="close" onClick={() => setShowErrorPopup(false)}>
+              Close
+            </button>
           </div>
-          <button
-            className="button"
-            type="submit"
-            onClick={() => {
-              handleSubmit();
-            }}
-          >
-            Login
-          </button>
-        </div>
-      </form>
-      {showErrorPopup && (
-        <div className="error-popup">
-          <p>{error}</p>
-          <button className="close" onClick={() => setShowErrorPopup(false)}>Close</button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
