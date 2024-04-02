@@ -16,6 +16,7 @@ import createEC from "./Components/User Specific Components/Student Components/c
 import viewMyECs from "./Components/User Specific Components/Student Components/viewMyECs";
 import raiseTicket from "./Components/User Specific Components/Student Components/raiseTicket";
 import viewMyTickets from "./Components/User Specific Components/Student Components/viewMyTickets";
+import closedTickets from "./Components/User Specific Components/Student Components/viewClosedTickets.js"
 
 import updateFAQ from "./Components/User Specific Components/Technician Components/updateFAQ.js";
 import updateServices from "./Components/User Specific Components/Technician Components/updateServices.js";
@@ -41,6 +42,7 @@ function App() {
           <Route path="view-my-ECs" Component={viewMyECs} />
           <Route path="raise-ticket" Component={raiseTicket} />
           <Route path="view-my-tickets" Component={viewMyTickets} />
+          <Route path="view-closed-tickets" Component={closedTickets} />
         </Route>
 
         <Route exact path="/technician/" Component={TechnicianHomepage}>

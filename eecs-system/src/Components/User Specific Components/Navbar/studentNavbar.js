@@ -32,6 +32,11 @@ function StudentNavbar() {
                 <button>View My Tickets</button>
               </Link>
             </li>
+            <li>
+              <Link to="view-closed-tickets">
+                <button>View Closed Tickets</button>
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

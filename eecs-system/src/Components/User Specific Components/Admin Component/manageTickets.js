@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import "./admin.css";
 
 import ticketRegistry from "../../../Managers/TicketRegistry";
+import closedRegistry from "../../../Managers/closedTicketsRegistry"
 
 function ManageTickets() {
   function updateContent(ticket) {
     setTitle(ticket.user.name + " (" + ticket.user.id + ") : " + ticket.type);
     setInfo(ticket.title + " - " + ticket.date);
     setDetails(ticket.details);
+    setCurrentTicket(ticket);
   }
 
   function getAllTickets() {
@@ -18,26 +20,35 @@ function ManageTickets() {
     return tickets;
   }
 
-  function handleDelete(){
-    
-    let newCurrent
-    const currentIndex = ticketRegistry.getIndex(currentTicket)
-    console.log(currentIndex, " - ", ticketRegistry.getLength())
-    if (currentIndex == 0 && ticketRegistry.getLength()>1){
-      console.log("1")
-      newCurrent = ticketRegistry.getTicket(currentIndex+1)
-      
+  function handleDelete() {
+    closedRegistry.addTicket(currentTicket, feedback);
+    setFeedback("");
+  
+    let prevIndex = -1;
+    let nextIndex = -1;
+    const currentIndex = ticketRegistry.getIndex(currentTicket);
+  
+    if (currentIndex > 0) {
+      prevIndex = currentIndex - 1;
     }
-    else if(currentIndex === ticketRegistry.getLength()-1){
-      console.log("delete final")
-      newCurrent = ticketRegistry.getTicket(currentIndex-1)
+  
+    if (currentIndex < ticketRegistry.getLength() - 1) {
+      nextIndex = currentIndex + 1;
     }
-    else{
-      console.log("other")
-      newCurrent = ticketRegistry.getTicket(ticketRegistry.getIndex(currentTicket) +1)
+  
+    ticketRegistry.deleteEc(currentTicket);
+  
+    let newCurrent;
+    if (nextIndex !== -1) {
+      newCurrent = ticketRegistry.getTicket(nextIndex);
+    } else if (prevIndex !== -1) {
+      newCurrent = ticketRegistry.getTicket(prevIndex);
+    } else {
+      // No tickets remaining
+      newCurrent = null;
     }
-    ticketRegistry.deleteEc(currentTicket)
-    updateContent(newCurrent)
+  
+    updateContent(newCurrent);
   }
 
 
@@ -46,6 +57,7 @@ function ManageTickets() {
   const [info, setInfo] = useState(SelectedTicket.title + " - " + SelectedTicket.date);
   const [details, setDetails] = useState(SelectedTicket.details);
   const [currentTicket, setCurrentTicket] = useState(SelectedTicket);
+  const [feedback, setFeedback] = useState("");
   const tickets = getAllTickets();
   console.log(tickets)
 
@@ -75,10 +87,10 @@ function ManageTickets() {
             <br></br>
             Ticket Request Details: <br></br>
             {details}
-            <input type="text" ></input>
+            <input type="text" onChange={(e) => setFeedback(e.target.value)}></input>
             <button  className="deleteButton"
               onClick= {handleDelete}
-            >Delete Ticket</button>
+            >Close Ticket</button>
           </div>
         </div>
       </div>
