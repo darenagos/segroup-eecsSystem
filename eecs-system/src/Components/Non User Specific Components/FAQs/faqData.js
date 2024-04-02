@@ -4,7 +4,7 @@ const faqData = [
         Answer: "Use your username and password",
     },
     {
-        Question: "How do I report a problem",
+        Question: "How do I report a problem?",
         Answer: "Submit a ticket",
     },
     {
