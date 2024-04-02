@@ -18,6 +18,18 @@ body {
     background-color: var(--grey);
 }
 
+.ticketlist {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--grey);
+    border-radius: 10px;
+    margin-bottom: 7px;
+    background-color: #F8F4EE;
+    box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.25);
+}
+
+
 .ticketh2 {
     color: var(--black);
     text-align: left;

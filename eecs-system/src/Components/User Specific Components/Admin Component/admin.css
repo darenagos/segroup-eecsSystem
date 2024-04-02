@@ -95,5 +95,9 @@ button{
     grid-row: span 2;
 }
 
-
+.deleteButton{
+    background-color: rgba(187, 185, 181, 0.8);
+    /* border: ; */
+    margin: 0em;
+}
 

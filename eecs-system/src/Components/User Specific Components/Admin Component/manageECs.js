@@ -99,7 +99,7 @@ function ManageECs() {
             Details<br></br>
             {details}
             
-            <button
+            <button className="deleteButton"
               onClick= {handleDelete}
             >Delete EC</button>
           </div>
