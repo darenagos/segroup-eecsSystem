@@ -26,6 +26,9 @@ function ManageTickets() {
       setFeedback("");
       ticketRegistry.deleteEc(currentTicket);
       setCurrentTicket("");
+      setInfo("");
+      setDetails("");
+      setTitle("");
     }
   }
 
