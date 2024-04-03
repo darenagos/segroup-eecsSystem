@@ -33,20 +33,9 @@ function ClosedTickets() {
       setFeedback(item.feedback);
     }
 
-    function clearAll() {
-      for (let i = 0; i < myTickets.length; i++) {
-        closedRegistry.delete(closedRegistry.getIndex(myTickets[i]))
-      }
-    }
-
     return (
         <div>
         <div className="padding-grid">
-          <form>
-            <button type="submit" onClick={clearAll}>
-                Clear All
-            </button>
-          </form>
           <div className="grid-container">
             <div className="grid-row-span-2">
               <div className="box-view-tickets">
