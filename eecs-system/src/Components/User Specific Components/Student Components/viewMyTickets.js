@@ -53,9 +53,6 @@ function ViewMyTickets() {
             {type}
             <br></br>
             {details}
-            <button className="close-ticket-button grid-col-span-2">
-              Close Ticket
-            </button>
           </div>
         </div>
       </div>

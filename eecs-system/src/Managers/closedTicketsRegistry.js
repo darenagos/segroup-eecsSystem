@@ -36,24 +36,29 @@ class closedTicketRegistry {
    }
 
    getTicket(index){
-   this.load()
+    this.load()
     return this.data[index];
    }
+
    getAllTickets(){
-   this.load()
+    this.load()
     return this.data;
    }
 
    delete(ticket){
-    this.data.splice(this.data.indexOf(ticket), 1)
-   this.save()
+    this.data.splice(ticket, 1)
+    this.save()
    }
 
    getIndex(ticket){
-   this.load()
+    this.load()
     return this.data.indexOf(ticket)
    }
 
+   clearData() {
+    localStorage.removeItem("TicketRegistry");
+    this.data = [];
+  }
 
 }
 

@@ -5,11 +5,11 @@ import ticketRegistry from "../../../Managers/TicketRegistry";
 import closedRegistry from "../../../Managers/closedTicketsRegistry"
 
 function ManageTickets() {
-  function updateContent(ticket) {
+  function updateContent(ticket, index) {
     setTitle(ticket.user.name + " (" + ticket.user.id + ") : " + ticket.type);
     setInfo(ticket.title + " - " + ticket.date);
     setDetails(ticket.details);
-    setCurrentTicket(ticket);
+    setCurrentTicket(index);
   }
 
   function getAllTickets() {
@@ -21,45 +21,21 @@ function ManageTickets() {
   }
 
   function handleDelete() {
-    closedRegistry.addTicket(currentTicket, feedback);
-    setFeedback("");
-  
-    let prevIndex = -1;
-    let nextIndex = -1;
-    const currentIndex = ticketRegistry.getIndex(currentTicket);
-  
-    if (currentIndex > 0) {
-      prevIndex = currentIndex - 1;
+    if (currentTicket !== "") {
+      closedRegistry.addTicket(ticketRegistry.getTicket(currentTicket), feedback);
+      setFeedback("");
+      ticketRegistry.deleteEc(currentTicket);
+      setCurrentTicket("");
     }
-  
-    if (currentIndex < ticketRegistry.getLength() - 1) {
-      nextIndex = currentIndex + 1;
-    }
-  
-    ticketRegistry.deleteEc(currentTicket);
-  
-    let newCurrent;
-    if (nextIndex !== -1) {
-      newCurrent = ticketRegistry.getTicket(nextIndex);
-    } else if (prevIndex !== -1) {
-      newCurrent = ticketRegistry.getTicket(prevIndex);
-    } else {
-      // No tickets remaining
-      newCurrent = null;
-    }
-  
-    updateContent(newCurrent);
   }
 
 
-  const SelectedTicket = ticketRegistry.getTicket(1)
-  const [title, setTitle] = useState(SelectedTicket.user.name + " (" + SelectedTicket.user.id + ") : " + SelectedTicket.module);
-  const [info, setInfo] = useState(SelectedTicket.title + " - " + SelectedTicket.date);
-  const [details, setDetails] = useState(SelectedTicket.details);
-  const [currentTicket, setCurrentTicket] = useState(SelectedTicket);
+  const [title, setTitle] = useState("");
+  const [info, setInfo] = useState("");
+  const [details, setDetails] = useState("");
+  const [currentTicket, setCurrentTicket] = useState("");
   const [feedback, setFeedback] = useState("");
-  const tickets = getAllTickets();
-  console.log(tickets)
+  const allTickets = getAllTickets();
 
 
   return (
@@ -70,10 +46,11 @@ function ManageTickets() {
             <div className="box">
               <a>List of Tickets: </a>
               <br></br>
-              {tickets.map((ticket) => (
+              {allTickets.map((ticket, index) => (
                 <button
                   className="ec-title-button-side"
-                  onClick={() => updateContent(ticket)}
+                  onClick={() => updateContent(ticket, index)}
+                  key={index}
                 >
                   {ticket.user.name} - {ticket.title}
                 </button>
@@ -87,10 +64,12 @@ function ManageTickets() {
             <br></br>
             Ticket Request Details: <br></br>
             {details}
-            <input type="text" onChange={(e) => setFeedback(e.target.value)}></input>
-            <button  className="deleteButton"
-              onClick= {handleDelete}
-            >Close Ticket</button>
+            <form>
+              <input type="text" onChange={(e) => setFeedback(e.target.value)}></input>
+              <button  className="deleteButton"
+                onClick= {handleDelete}
+              >Close Ticket</button>
+            </form>
           </div>
         </div>
       </div>

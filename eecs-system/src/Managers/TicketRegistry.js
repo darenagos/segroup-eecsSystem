@@ -43,13 +43,14 @@ class TicketRegistry {
    this.load()
     return this.data[index];
    }
+   
    getAllTickets(){
    this.load()
     return this.data;
    }
 
    deleteEc(ticket){
-    this.data.splice(this.data.indexOf(ticket), 1)
+    this.data.splice(ticket, 1)
    this.save()
    }
 
@@ -58,27 +59,25 @@ class TicketRegistry {
     return this.data.indexOf(ticket)
    }
 
+   clearData() {
+    localStorage.removeItem("TicketRegistry");
+    this.data = [];
+  }
+
 
 }
 
 class Ticket {
-    constructor(user, date, title, type, details){
-        this.user = user
-        this.date = date;
-        this.title = title
-        this.type = type
-        this.details = details
+    constructor(user, date, title, type, details) {
+      this.user = user;
+      this.date = date;
+      this.title = title;
+      this.type = type;
+      this.details = details;
     }
   }
 
 
 //initialize default EC Registry with following ECs:
 const myRegistry = new TicketRegistry();
-
-if (myRegistry.getLength() < 3){
-    const ticketRegistry = new TicketRegistry();
-    ticketRegistry.addTicket(new Ticket(userRegistry.findUserByUsername("mo"), "69th Jan 2020", "No Internet", "Technical", "Why is the internet not working?!?!"))
-    ticketRegistry.addTicket(new Ticket(userRegistry.findUserByUsername("darena"), "-4th Feb -36345 BCE", "Cavemen are speaking Klingon", "Social", "I cant understand them. are they speaking in klingon? What am I doing here anyway??!?"))
-    ticketRegistry.addTicket(new Ticket(userRegistry.findUserByUsername("luke"), "0th Jan 0000", "OOP SUX", "Other", "I am moving to China, iz better there bro"))
-}
 export default myRegistry;
