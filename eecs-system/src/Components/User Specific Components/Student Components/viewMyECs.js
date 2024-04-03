@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "../../../reset.css";
 import "./viewMyECs.css";
 
-import ecRegistry from "../../../Managers/ECRegistry"
-import currentUserManager from "../../../Managers/CurrentUserManager"
+import ecRegistry from "../../../Managers/ECRegistry";
+import currentUserManager from "../../../Managers/CurrentUserManager";
 
 function ViewMyECs() {
   function getMyEcs() {
@@ -21,11 +21,18 @@ function ViewMyECs() {
 
   function updateContent(ec) {
     console.log("ec user:", ec.user);
-    if (ec.selfCertified === false){
-      setTitle(ec.user.name +" ("+ ec.user.id + ") : " + ec.module);}
-      else{
-        setTitle(ec.user.name +" ("+ ec.user.id + ") : " + ec.module + " - SELF CERTIFIED");
-      }
+    if (ec.selfCertified === false) {
+      setTitle(ec.user.name + " (" + ec.user.id + ") : " + ec.module);
+    } else {
+      setTitle(
+        ec.user.name +
+          " (" +
+          ec.user.id +
+          ") : " +
+          ec.module +
+          " - SELF CERTIFIED"
+      );
+    }
     setInfo(ec.title + " - " + ec.date);
     setDetails(ec.details);
   }
@@ -37,33 +44,33 @@ function ViewMyECs() {
 
   return (
     <div>
-      <div className="padding-grid">
-        <div className="grid-container">
+      <div className="padding-grid-view-ec">
+        <div className="grid-container-view-ec">
           <div className="grid-row-span-2">
-            <div className="box">
-              <a>List of ECs:</a>
-              <br></br>
-              {myEcs.map((ec) => (
-                <button
-                  className="ec-title-button-side"
-                  onClick={() => updateContent(ec)}
-                >
-                  {ec.title} - {ec.module}
-                </button>
-              ))}{" "}
+            <div className="box-view-ec">
+              <div className="scrollable-view-ec">
+                <a>List of ECs:</a>
+                <br></br>
+                {myEcs.map((ec) => (
+                  <button
+                    className="ec-title-button-side-1"
+                    onClick={() => updateContent(ec)}
+                  >
+                    {ec.title} - {ec.module}
+                  </button>
+                ))}{" "}
+              </div>
             </div>
           </div>
+          <div className="ec-title grid-col-span-2 box-view-ec">{title}</div>
+          <div className="grid-col-span-2 ec-content box-view-ec">
+            <div>
+              <div className="ec-information"> {info}</div>
 
-          <div className="ec-title grid-col-span-2 box">{title}</div>
-          <div className="ec-content grid-col-span-2 box">
-            {info}
-            <br></br>
-            {details}
-            <button className="close-ec-button grid-col-span-2">
-              Close EC
-            </button>
+              <div className="ec-details">{details}</div>
+            </div>
+            <button className="close-ec-button">Close EC</button>
           </div>
-          {/* <div>fds</div> */}
         </div>
       </div>
     </div>

@@ -1,29 +1,77 @@
-.padding-grid{
+.padding-grid-view-ec{
 
     padding: 5%;
-    margin-left: 20%;
+    margin-left: 15%;
+
+    max-height: 93vh; /* Adjust the height as needed */
+
 
 
 }
-.grid-container{
+.grid-container-view-ec{
     display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   grid-template-rows: auto;
-   min-height: 60vh;
-   min-width: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr;
+    max-height: 70vh;
+    min-height: 70vh;
+    /* min-width: none;
+    margin-bottom: 20vh;
+
+    padding: 2%; */ 
+
+    gap:15px;
+
+
+
+    
 
 }
 
-.box{
-    background: rgba(198, 195, 189, 0.30);
+
+.box-view-ec {
+    background: rgba(255, 255, 255);
     padding: 10px;
     border-radius: 15px;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-left: 10px;
+    box-shadow: 0px 1px 7px rgb(121, 118, 115);
+    
+    
     height: 100%;
+    /* max-height: 70vh; Limit the height to prevent overflow */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+    min-width: none;
+    max-height: 70vh;
+
+    
+    /* WebKit (Chrome, Safari) */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgba(187, 185, 181, 0.5) transparent; /* For Firefox */
+
+    /* WebKit (Chrome, Safari) */
+    &::-webkit-scrollbar {
+        width: 15px; /* Width of the scrollbar */
+        height: 10px; /* Height of the scrollbar */
+    }
+
+    /* WebKit (Chrome, Safari) */
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(187, 185, 181, 0.8); /* Color of the scrollbar thumb */
+        border-radius: 5px; /* Curved edges */
+        width: 15px; /* Adjust the width of the scrollbar thumb */
+    }
+
+    
+    
+
+ 
+
 
 }
+
+.scrollable-view-ec {
+    max-height: 93vh;
+
+}
+
 
 button{
     background: none;
@@ -32,69 +80,91 @@ button{
     box-shadow: none;
 }
 
-.ec-title-button-side{
+.ec-title-button-side-1{
 
     text-align: center;
-    background-color: rgba(187, 185, 181, 0.8);
-
-    margin-top: 10px;
-    /* margin-left: 10px; */
-    margin-bottom: 10px;
-   
-    border-radius: 2px;
+    background-color: rgba(187, 185, 181, 0.3);
+    border-radius: 8px;
     padding-right: 2px;
 
     align-self: center;
     justify-self: center;
     width: 100%;
-
-    
+    font-size: medium;
+   
     
 }
 
 
-.ec-title-button-side:hover{
-    background-color: rgb(255, 255, 255, 0.4);
+.ec-title-button-side-1:hover{
+    background-color: rgba(187, 185, 181, 0.5);
     border-left: 4px solid #0D3273;
+
     
 }
 
 
 
-.ec-title{
+.ec-title {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px; /* Set the height for the EC title grid item */
     
+ 
     
+    /* Prevent text from wrapping */
+  
 }
+
 
 .ec-content{
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    /* removes gap from title to content */
-    min-height: 60vh; 
-    min-width: none;
-   
+    grid-template-columns: 1fr;
+    grid-template-rows: auto; /* First row covers 20%, second row covers 80% */
+  
+
+    padding: 3%;
+
+  }
+  
+.ec-information{
+    padding: 5%;
+    border-bottom: 2px solid rgba(13, 50, 115, 0.3);
+    
+
+}
+
+.ec-details{
+    padding: 5%;
+    /* overflow-x: auto; Enable horizontal scrolling */
+    
+  
+    
+    padding: 2%; 
+
 }
 
 .close-ec-button{
-    display: block;
-    margin: auto;
-    border-radius: 30px;
-    background-color: rgb(255, 255, 255, 0.4);
-    width: 45%;
-
     
+    border-radius: 20px;
+    background-color: var(--blue);
+    box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.25);
+    color: white;
+    cursor: pointer;
+    width: 25%;
+
+    align-self: end;
+    margin-bottom: 20px;
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
 
 }
 
 .close-ec-button:hover{
-    background-color: rgba(13, 50, 115, 1);
+    background-color: var(--purple);
     color: white;
 
-    box-shadow: 1px 1px 5px rgba(10, 43, 99, 0.7);
+    box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.25);
 }
 
 
