@@ -11,8 +11,8 @@ function DisplayHomePageInformation() {
         <div className="padding-grid-home">
           <div className="grid-container-home home-box ">
             <div>
-              <h2 className="home-heading">EC</h2>
               <div className="homep">
+                <h2 className="home-heading">EC</h2>
                 <p>
                   {/* If your concern directly impacts your ability to meet academic
                   deadlines  */}
@@ -30,8 +30,8 @@ function DisplayHomePageInformation() {
               </div>
             </div>
             <div>
-              <h2 className="home-heading">Ticket</h2>
               <div className="homep">
+                <h2 className="home-heading">Ticket</h2>
                 <p>
                   <br></br>
                   <li>Course Material Access Issues</li>
