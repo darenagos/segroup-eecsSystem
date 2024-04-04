@@ -14,7 +14,7 @@ function StudentNavbar() {
           <ul>
             <li>
               <Link to="create-EC">
-                <button>createEC</button>{" "}
+                <button>Create EC</button>{" "}
               </Link>
             </li>
             <li>

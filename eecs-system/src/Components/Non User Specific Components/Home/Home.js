@@ -11,13 +11,13 @@ function DisplayHomePageInformation() {
         <div className="padding-grid-home">
           <div className="grid-container-home homeBox ">
             <div>
-              <h2 className="home-ec-heading">EC</h2>
+              <h2 className="home-heading">EC</h2>
             </div>
             <div>
-              <h2 className="home-ticket-heading">Ticket</h2>
+              <h2 className="home-heading">Ticket</h2>
             </div>
             <div>
-              <p>
+              <p class="homep">
                 If your concern directly impacts your ability to meet academic
                 deadlines, such as unforeseen personal or medical emergencies,
                 family crises, or other significant life events affecting your
@@ -25,7 +25,7 @@ function DisplayHomePageInformation() {
               </p>
             </div>
             <div>
-              <p>
+              <p class="homep">
                 If you encounter difficulties with accessing course materials,
                 submitting assignments, or experiencing technical problems
                 within the institution's services or facilities, your concern

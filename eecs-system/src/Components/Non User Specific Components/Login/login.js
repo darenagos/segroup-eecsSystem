@@ -25,7 +25,7 @@ const Login = () => {
 
   const validateUser = async (username, password) => {
     const user = userRegistry.findUserByUsername(username);
-    console.log(userRegistry.findUserByUsername(username));
+    console.log(user);
     if (!user === false) {
       if (user.password === password) {
         navigateUser(user);
