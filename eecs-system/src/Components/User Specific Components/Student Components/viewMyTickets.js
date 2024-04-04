@@ -18,7 +18,7 @@ function ViewMyTickets() {
     return myTickets;
   }
 
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("Select a Ticket");
   const [type, setType] = useState("");
   const [details, setDetails] = useState("");
   const myTickets = GetMyTickets();
@@ -31,28 +31,32 @@ function ViewMyTickets() {
 
   return (
     <div>
-      <div className="padding-grid">
-        <div className="grid-container">
+      <div className="padding-grid-view-ticket">
+        <div className="grid-container-view-ticket">
           <div className="grid-row-span-2">
-            <div className="box-view-tickets">
-              <a>List of Tickets:</a>
-              <br></br>
-              {myTickets.map((ticket) => (
-                <button
-                  className="ticket-title-button-side"
-                  onClick={() => UpdateContent(ticket)}
-                >
-                  {ticket.title} - {ticket.type}
-                </button>
-              ))}{" "}
+            <div className="box-view-ticket">
+              <div className="scrollable-view-ticket">
+                <a>List of Tickets:</a>
+                <br></br>
+                {myTickets.map((ticket) => (
+                  <button
+                    className="ticket-title-button-side-1"
+                    onClick={() => UpdateContent(ticket)}
+                  >
+                    {ticket.title} - {ticket.type}
+                  </button>
+                ))}{" "}
+              </div>
             </div>
           </div>
-
-          <div className="ticket-title grid-col-span-2 box">{title}</div>
-          <div className="ticket-content grid-col-span-2 box">
-            {type}
-            <br></br>
-            {details}
+          <div className="ticket-title grid-col-span-2 box-view-ticket">
+            {title}
+          </div>
+          <div className="ticket-content grid-col-span-2 box-view-ticket">
+            <div>
+              <div className="ticket-type">{type}</div>
+              <div className="ticket-details">{details}</div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,65 +1,122 @@
 import React, { useState } from "react";
 import "../../../reset.css";
 import "./raiseTicket.css";
-//import EC from "../../../Managers/ECRegistry"
 
-import ticketRegistry from "../../../Managers/TicketRegistry"
-import currentUserManager from "../../../Managers/CurrentUserManager"
+import ticketRegistry from "../../../Managers/TicketRegistry";
+import currentUserManager from "../../../Managers/CurrentUserManager";
 
 class Ticket {
-  constructor(user, date, title, type, details){
-    this.user = user
+  constructor(user, date, title, type, details) {
+    this.user = user;
     this.date = date;
-    this.title = title
-    this.type = type
-    this.details = details
+    this.title = title;
+    this.type = type;
+    this.details = details;
   }
 }
 
 function RaiseTicket() {
   const pressSubmit = async (event) => {
-    if (title !== "" & details !== "" & type !== ""){
+    if ((title !== "") & (details !== "") & (type !== "")) {
       event.preventDefault();
 
-      await ticketRegistry.addTicket(new Ticket(currentUserManager.getCurrent(),  Date(), title, type, details));
+      await ticketRegistry.addTicket(
+        new Ticket(
+          currentUserManager.getCurrent(),
+          Date(),
+          title,
+          type,
+          details
+        )
+      );
       Array.from(document.querySelectorAll("input")).forEach(
         (input) => (input.value = "")
       );
-      
-      setTitle("")
-      setDetails("")
-      setType("")
+
+      setTitle("");
+      setDetails("");
+      setType("");
+    } else {
+      console.log("Not all fields filled");
     }
-    else{
-      console.log("Not all fields filled")
-    }
-  }
+  };
 
   // const [name, setName] = useState(null);
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [type, setType] = useState("");
 
-
-  
   return (
-    <div>
-      <h2 class="ticketh2"><br></br>Raise a New Ticket</h2>
-      <form class="ticketform">
-      <label>
-        <input class="ticketinput" type="text" name="title" placeholder="Title" required value={title} onChange={(e) => setTitle(e.target.value)}/>
-        </label>
-        <br />
-        <label>
-        <input class="ticketinput" type="text" name="type" placeholder="Type" required value={type} onChange={(e) => setType(e.target.value)}/>
-        </label>
-        <br />
-        <label>
-          <input class="ticketinput" type="text" name="details" placeholder="Details" required value={details} onChange={(e) => setDetails(e.target.value)}/>
-        </label>
-        <br />
-        <input class="ticketsubmit" type="submit" value="Submit" onClick={pressSubmit} />
-      </form>
+    <div className="padding-grid-create-ticket">
+      <div className="scrollable-grid">
+        <div className="grid-create-ticket">
+          <div>
+            <div className="heading-create-ticket">
+              <br></br>Raise a New Ticket
+            </div>
+          </div>
+          <div>
+            <form class="form-create-ticket">
+              <label>
+                <div className="ticket-form-title">Title:</div>
+                <div className="brief-description-ec">
+                  Enter a brief title that summarizes the issue you're
+                  experiencing.
+                </div>
+                <input
+                  className="ticket-input"
+                  type="text"
+                  name="title"
+                  placeholder="Title"
+                  required
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </label>
+              <div className="ticket-form-title">Type:</div>
+              <div className="ticket-input">
+                Briefly describe the nature of your concern or issue in the
+                provided text field. For example: "Technical issue".
+              </div>
+              <label>
+                <input
+                  className="ticket-input"
+                  type="text"
+                  name="type"
+                  placeholder="Type"
+                  required
+                  value={type}
+                  onChange={(e) => setType(e.target.value)}
+                />
+              </label>
+              <div className="ticket-form-title">Details:</div>
+              <div className="brief-description-ticket">
+                Describe the problem you're encountering. The more information
+                you provide, the better we can understand and address your issue
+                effectively.
+              </div>
+              <label>
+                <input
+                  className="ticket-input-description"
+                  type="text"
+                  name="details"
+                  placeholder="Details"
+                  required
+                  value={details}
+                  onChange={(e) => setDetails(e.target.value)}
+                />
+              </label>
+              <br />
+              <input
+                className="ticket-submit"
+                type="submit"
+                value="Submit"
+                onClick={pressSubmit}
+              />
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

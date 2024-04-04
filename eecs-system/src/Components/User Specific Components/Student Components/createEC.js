@@ -67,7 +67,7 @@ function CreateEC() {
       <div className="scrollable-grid">
         <div className="grid-create-ec">
           <div>
-            <div class="heading-create-ec">
+            <div className="heading-create-ec">
               <br></br>Log a New Claim
             </div>
           </div>

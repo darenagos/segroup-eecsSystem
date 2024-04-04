@@ -66,10 +66,8 @@ function ViewMyECs() {
           <div className="grid-col-span-2 ec-content box-view-ec">
             <div>
               <div className="ec-information"> {info}</div>
-
               <div className="ec-details">{details}</div>
             </div>
-            <button className="close-ec-button">Close EC</button>
           </div>
         </div>
       </div>
