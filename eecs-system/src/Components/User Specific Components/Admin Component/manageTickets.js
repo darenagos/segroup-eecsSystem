@@ -32,10 +32,9 @@ function ManageTickets() {
     }
   }
 
-  const ti1 = ticketRegistry.getTicket(0)
-  const [title, setTitle] = useState(ti1.user.name + " (" + ti1.user.id + ") : " + ti1.type);
-  const [info, setInfo] = useState(ti1.title + " - " + ti1.date);
-  const [details, setDetails] = useState(ti1.details);
+  const [title, setTitle] = useState("");
+  const [info, setInfo] = useState("");
+  const [details, setDetails] = useState("");
   const [currentTicket, setCurrentTicket] = useState(0);
   const [feedback, setFeedback] = useState("");
   const allTickets = getAllTickets();
