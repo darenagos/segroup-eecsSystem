@@ -1,7 +1,7 @@
 import React from "react";
 import "./home.css";
 
-import currentUserManager from "../../../Managers/CurrentUserManager"
+import currentUserManager from "../../../Managers/CurrentUserManager";
 
 function DisplayHomePageInformation() {
   const currentUserType = currentUserManager.getCurrent().userType;
@@ -9,28 +9,41 @@ function DisplayHomePageInformation() {
     return (
       <div>
         <div className="padding-grid-home">
-          <div className="grid-container-home homeBox ">
+          <div className="grid-container-home home-box ">
             <div>
               <h2 className="home-heading">EC</h2>
+              <div className="homep">
+                <p>
+                  {/* If your concern directly impacts your ability to meet academic
+                  deadlines  */}
+                  <br></br>
+                  <li>Personal or Medical Emergencies</li>
+                  <li>Family Crises</li>
+                  <li>Other Significant Life Events</li>
+                  <br></br>
+                  If you're facing any of these circumstances, you can submit an
+                  EC request. Provide relevant documentation and details to
+                  support your request. EC requests are reviewed by academic
+                  administration, who assess easch case and may grant
+                  accommodations accordingly.
+                </p>
+              </div>
             </div>
             <div>
               <h2 className="home-heading">Ticket</h2>
-            </div>
-            <div>
-              <p class="homep">
-                If your concern directly impacts your ability to meet academic
-                deadlines, such as unforeseen personal or medical emergencies,
-                family crises, or other significant life events affecting your
-                coursework, it likely falls under the EC category
-              </p>
-            </div>
-            <div>
-              <p class="homep">
-                If you encounter difficulties with accessing course materials,
-                submitting assignments, or experiencing technical problems
-                within the institution's services or facilities, your concern
-                falls under the purview of a Ticket.
-              </p>
+              <div className="homep">
+                <p>
+                  <br></br>
+                  <li>Course Material Access Issues</li>
+                  <li>Assignment Submission Problems</li>
+                  <li>Technical Service or Facility Issues</li>
+                  <br></br>
+                  If you're facing any of these circumstances, you can submit a
+                  Ticket. Provide detailed information about the issue
+                  encountered. Support staff will review your ticket and work to
+                  resolve the problem promptly.
+                </p>
+              </div>
             </div>
           </div>
         </div>

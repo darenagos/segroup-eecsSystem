@@ -25,9 +25,12 @@ h2{
 .home-heading {
     text-align: center;
     margin-top: 5vh;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    font-size: 35px;
+    font-weight: lighter;
+    font-size: x-large;
+
+    border-bottom: 3px solid var(--blue);
+    padding-bottom: 10px;
+    
     
 }
 
@@ -35,34 +38,39 @@ h2{
 .padding-grid-home{
 
     padding: 5%;
-    margin-left: 20%;
+    margin-left: 15%;
 
+  
 
 }
 .grid-container-home{
     display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   grid-template-rows: auto;
-   min-height: 60vh;
-   min-width: none;
-   gap: 5%;
-   font-family: Arial, Helvetica, sans-serif;
-   font-size:medium;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    min-height: 60vh;
+    min-width: none;
+    gap: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:medium;
    
 
 }
 
-.homeBox{
-    background: rgba(245, 242, 238);
+
+.home-box{
+    background: rgb(255, 255, 255);
     padding: 5%;
     border-radius: 15px;
     height: 100%;
     border: 3px solid var(--pink);
     box-shadow: 0px 1px 8px rgb(96, 93, 90);
+    
+
 
 }
 
 .homep{
-    font-size:26px;
-    line-height: 32px;
+    font-size: 90%;
+    padding-top: 3%;
+
 }
