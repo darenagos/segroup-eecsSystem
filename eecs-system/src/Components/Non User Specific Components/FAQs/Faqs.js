@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./Faqs.css";
-import getFaqData from "./faqData"; 
+import getFaqData from "./faqData";
 
 function Faqs() {
   const [selected, setSelected] = useState(null);
-  const faqData = getFaqData(); 
+  const faqData = getFaqData();
 
   const toggle = (i) => {
     if (selected === i) {
@@ -14,9 +14,9 @@ function Faqs() {
   };
 
   return (
-    <div className="container">
-      <div className="">
-        <h1 className="header">Frequently Asked Questions</h1>
+    <div className="faq-container">
+      <div className="faq-content">
+        <h2 className="faq-header">Frequently Asked Questions</h2>
         {faqData.map((item, i) => (
           <div className="item" key={i}>
             <div className="title" onClick={() => toggle(i)}>

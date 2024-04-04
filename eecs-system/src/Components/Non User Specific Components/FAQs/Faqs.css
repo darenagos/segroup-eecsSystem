@@ -1,21 +1,28 @@
 
-.container{
+.faq-container{
     padding: 5%;
+
     display: flex;
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
+
+    max-height: 93vh;
+    overflow-y: auto;
 }
 
-.header {
+.faq-content{
+    width: 80%;
+}
+
+.faq-header {
     margin-bottom: 30px;
+    text-align: center;
 }
 
-.width900{
-    width: 900px;
-}
 
 .item{
-    background-color: aliceblue;
+    background-color: rgb(251, 251, 251);
+    border-radius: 5px;
     margin-bottom: 5px;
     padding: 10px 20px;
 }
@@ -29,7 +36,7 @@
 }
 
 .content{
-    color: gray;
+    color: rgb(81, 81, 81);
     max-height:0px ;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0,1,0,1);
