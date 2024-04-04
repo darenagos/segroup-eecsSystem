@@ -24,11 +24,15 @@
     margin-left: 10px;
     height:100%;
 }
-
-#ecList{
+.ticketFeedback{
+    height:10%;
+    padding:20px;
+}
+#ecOrTicketList{
     overflow-y: scroll;
     height: 65vh;
 }
+
 
 button{
     background: none;
@@ -98,6 +102,9 @@ button{
 .deleteButton{
     background-color: rgba(187, 185, 181, 0.8);
     /* border: ; */
+    width: 100%;
+    height: 15%;
     margin: 0em;
+    
 }
 

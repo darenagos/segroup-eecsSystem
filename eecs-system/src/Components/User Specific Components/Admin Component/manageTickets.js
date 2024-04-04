@@ -32,11 +32,11 @@ function ManageTickets() {
     }
   }
 
-
-  const [title, setTitle] = useState("");
-  const [info, setInfo] = useState("");
-  const [details, setDetails] = useState("");
-  const [currentTicket, setCurrentTicket] = useState("");
+  const ti1 = ticketRegistry.getTicket(0)
+  const [title, setTitle] = useState(ti1.user.name + " (" + ti1.user.id + ") : " + ti1.type);
+  const [info, setInfo] = useState(ti1.title + " - " + ti1.date);
+  const [details, setDetails] = useState(ti1.details);
+  const [currentTicket, setCurrentTicket] = useState(0);
   const [feedback, setFeedback] = useState("");
   const allTickets = getAllTickets();
 
@@ -46,7 +46,7 @@ function ManageTickets() {
       <div className="padding-grid">
         <div className="grid-container">
           <div className="grid-row-span-2">
-            <div className="box">
+            <div className="box" id = "ecOrTicketList">
               <a>List of Tickets: </a>
               <br></br>
               {allTickets.map((ticket, index) => (
@@ -68,7 +68,7 @@ function ManageTickets() {
             Ticket Request Details: <br></br>
             {details}
             <form>
-              <input type="text" onChange={(e) => setFeedback(e.target.value)}></input>
+              <input type="text" class="ticketFeedback" onChange={(e) => setFeedback(e.target.value)}></input>
               <button  className="deleteButton"
                 onClick= {handleDelete}
               >Close Ticket</button>

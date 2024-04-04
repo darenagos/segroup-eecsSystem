@@ -13,7 +13,7 @@ class UserRegistry {
     findUserByUsername(username){
         //can be simplified tbf
         for (let i=0; i< this.users.length; i++){
-            if (this.users[i].username === username){
+            if (this.users[i].username.toLowerCase() === username.toLowerCase()){
                 return this.users[i]
             }
         }

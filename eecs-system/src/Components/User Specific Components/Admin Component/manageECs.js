@@ -76,7 +76,7 @@ function ManageECs() {
       <div className="padding-grid">
         <div className="grid-container">
           <div className="grid-row-span-2">
-            <div className="box" id = "ecList">
+            <div className="box" id = "ecOrTicketList">
               <a>List of ECs:</a>
               <br></br>
               {ecs.map((ec, index) => (

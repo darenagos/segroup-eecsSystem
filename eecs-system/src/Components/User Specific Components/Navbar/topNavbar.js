@@ -17,7 +17,7 @@ function TopNavbar() {
           <a>Home </a>
         </Link>
         <Link to="service-status" className="topNavItem">
-          <a>services </a>
+          <a>Services </a>
         </Link>
         <Link to="faq-page" className="topNavItem">
           FAQs
