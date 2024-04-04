@@ -96,7 +96,7 @@ function RaiseTicket() {
                 effectively.
               </div>
               <label>
-                <input
+                <textarea
                   className="ticket-input-description"
                   type="text"
                   name="details"
