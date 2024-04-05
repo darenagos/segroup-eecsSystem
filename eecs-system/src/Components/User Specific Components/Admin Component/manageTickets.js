@@ -66,12 +66,14 @@ function ManageTickets() {
             <br></br>
             Ticket Request Details: <br></br>
             {details}
+
             <form>
+              <br></br><br></br><br></br><br></br>
               <input type="text" class="ticketFeedback" onChange={(e) => setFeedback(e.target.value)}></input>
-              <button  className="deleteButton"
+            </form>
+            <button  className="deleteButton"
                 onClick= {handleDelete}
               >Close Ticket</button>
-            </form>
           </div>
         </div>
       </div>
