@@ -23,6 +23,11 @@ function StudentNavbar() {
               </Link>
             </li>
             <li>
+              <Link to="view-ec-outcome">
+                <button>View EC Outcome</button>
+              </Link>
+            </li>
+            <li>
               <Link to="raise-ticket">
                 <button>Raise a ticket</button>{" "}
               </Link>

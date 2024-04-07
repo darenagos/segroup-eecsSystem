@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import "./admin.css";
 
-import  ecRegistry  from "../../../Managers/ECRegistry";
+import ecRegistry  from "../../../Managers/ECRegistry";
+import myOutcome from "../../../Managers/ecOutcomeRegistry";
 
 function ManageECs() {
   function updateContent(ec, index) {
-    console.log(index)
-    Array.from(document.querySelectorAll("input")).forEach(
-      (input) => (input.value = "")
-    );
-
     if (ec.selfCertified === false) {
       setTitle(ec.user.name + " (" + ec.user.id + ") : " + ec.module);
     } else {
@@ -37,39 +33,33 @@ function ManageECs() {
     return ecs;
   }
 
-  function handleDelete(){
-    
-    let newCurrent
-    //console.log(currentEc, " - ", ecRegistry.getLength())
-    if (currentEc == 0 && ecRegistry.getLength()>1){
-      console.log("1st in array")
-      newCurrent = 1
-      console.log("new", newCurrent, "old", currentEc)
-      setCurrentEc(newCurrent)
-      updateContent(ecRegistry.getEC(newCurrent), newCurrent)
-      ecRegistry.deleteEc(currentEc)
-    }
-    else if(ecRegistry.getLength() === 1){
-      alert("Can't delete final EC") 
-    }
-    else{
-      console.log("other")
-      newCurrent = currentEc -1
-      setCurrentEc(newCurrent)
-      updateContent(ecRegistry.getEC(newCurrent), newCurrent)
-      ecRegistry.deleteEc(currentEc)
+  function ApproveButton(){
+    if (currentEc !== ""){
+      myOutcome.addEC(ecRegistry.getEC(currentEc), "Accepted");
+      ecRegistry.deleteEc(currentEc);
+      setCurrentEc("");
+      setInfo("");
+      setDetails("");
+      setTitle("");
     }
   }
 
-  const ec0 = ecRegistry.getEC(0)
-  const [title, setTitle] = useState(ec0.user.name + " (" + ec0.user.id + ") : " + ec0.module);
-  const [info, setInfo] = useState(ec0.title + " - "  + ec0.date);
-  const [details, setDetails] = useState(ec0.details);
-  const [currentEc, setCurrentEc] = useState(0)
-  const ecs = getAllEC();
-  //console.log(ecs)
+  function RejectButton(){
+    if (currentEc !== ""){
+      myOutcome.addEC(ecRegistry.getEC(currentEc), "Rejected");
+      ecRegistry.deleteEc(currentEc);
+      setCurrentEc("");
+      setInfo("");
+      setDetails("");
+      setTitle("");
+    }
+  }
 
-  
+  const [title, setTitle] = useState("");
+  const [info, setInfo] = useState("");
+  const [details, setDetails] = useState("");
+  const [currentEc, setCurrentEc] = useState("")
+  const ecs = getAllEC();
 
   return (
     <div>
@@ -100,10 +90,17 @@ function ManageECs() {
             {details}
             
             <div>
-            <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-              <button className="deleteButton"
-              onClick= {handleDelete}
-              >Delete EC</button>
+            <br></br><br></br><br></br><br></br>
+            {currentEc !== "" && ecRegistry.getEC(currentEc) && (
+                <button className="deleteButton" onClick={ApproveButton}>
+                  Accpet EC
+                </button>
+              )}
+            {currentEc !== "" && ecRegistry.getEC(currentEc) && ecRegistry.getEC(currentEc).selfCertified === false && (
+              <button className="deleteButton" onClick={RejectButton}>
+                Reject EC
+              </button>
+            )}
             </div>
           </div>
         </div>

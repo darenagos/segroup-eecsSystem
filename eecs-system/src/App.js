@@ -14,6 +14,7 @@ import Faqs from "./Components/Non User Specific Components/FAQs/Faqs";
 
 import createEC from "./Components/User Specific Components/Student Components/createEC";
 import viewMyECs from "./Components/User Specific Components/Student Components/viewMyECs";
+import ecOutcome from "./Components/User Specific Components/Student Components/viewECOutcome.js"
 import raiseTicket from "./Components/User Specific Components/Student Components/raiseTicket";
 import viewMyTickets from "./Components/User Specific Components/Student Components/viewMyTickets";
 import closedTickets from "./Components/User Specific Components/Student Components/viewClosedTickets.js"
@@ -40,6 +41,7 @@ function App() {
 
           <Route path="create-EC" Component={createEC} />
           <Route path="view-my-ECs" Component={viewMyECs} />
+          <Route path="view-ec-outcome" Component={ecOutcome} />
           <Route path="raise-ticket" Component={raiseTicket} />
           <Route path="view-my-tickets" Component={viewMyTickets} />
           <Route path="view-closed-tickets" Component={closedTickets} />
