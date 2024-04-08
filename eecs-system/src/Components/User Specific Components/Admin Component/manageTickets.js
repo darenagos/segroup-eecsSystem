@@ -50,7 +50,7 @@ function ManageTickets() {
               <br></br>
               {allTickets.map((ticket, index) => (
                 <button
-                  className="ec-title-button-side"
+                  className="ec-title-button-side-1"
                   onClick={() => updateContent(ticket, index)}
                   key={index}
                 >
@@ -62,10 +62,10 @@ function ManageTickets() {
 
           <div className="ec-title grid-col-span-2 box">{title}</div>
           <div className="ec-content grid-col-span-2 box">
-            {info}
-            <br></br>
-            Ticket Request Details: <br></br>
-            {details}
+            <div>
+              <div className="ec-information"> {info}</div>
+              <div className="ec-details">{details}</div>
+            </div>
 
             <form>
               <br></br><br></br><br></br><br></br>
