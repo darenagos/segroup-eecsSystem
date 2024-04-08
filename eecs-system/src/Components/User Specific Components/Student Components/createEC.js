@@ -19,9 +19,25 @@ class EC {
 }
 
 function CreateEC() {
+  const getMaxCount = () => {
+    const maxCount = localStorage.getItem(`maxCount-${currentUserManager.getCurrent().id}`);
+    return maxCount ? parseInt(maxCount) : 3;
+  };
+
+  const setMaxCount = (count) => {
+    localStorage.setItem(`maxCount-${currentUserManager.getCurrent().id}`, JSON.stringify(count))
+  };
+
   const pressSubmit = async (event) => {
     if ((title !== "") & (module !== "") & ((details !== "") | selfCertified)) {
       event.preventDefault();
+      const currentUser = currentUserManager.getCurrent();
+      const maxCount = getMaxCount();
+      if (selfCertified && getMaxCount() > 0) {
+        currentUser.certifiedCount--;
+        setMaxCount(maxCount-1);
+        currentUserManager.setUser(currentUser);
+      }
       await ecRegistry.addEC(
         new EC(
           currentUserManager.getCurrent(),
@@ -154,8 +170,11 @@ function CreateEC() {
 
                 <div className="brief-description-ec">
                   Note: You have up to three self-certified extensions available
+                  <br/>
+                  Currently you have {getMaxCount()} self-certified ecs left
                 </div>
-                <input
+                {getMaxCount() > 0 &&(
+                  <input
                   className="self-certified"
                   type="checkbox"
                   name="selfCertified"
@@ -163,6 +182,7 @@ function CreateEC() {
                   checked={selfCertified}
                   onChange={(e) => setSelfCertified(!selfCertified)}
                 />
+                )}
               </label>
               <input
                 type="submit"
