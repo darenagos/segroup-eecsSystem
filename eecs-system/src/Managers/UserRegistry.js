@@ -41,7 +41,7 @@ userRegistry.addUser(new User("Student2","ec23456","student2@qmul.ac.uk","studen
 userRegistry.addUser(new User("Technician QMUL","te12345","technician@qmul.ac.uk","technician","technician","technician"))
 userRegistry.addUser(new User("Admin QMUL","te12345","admin@qmul.ac.uk","admin","admin","admin"))
 userRegistry.addUser(new User("Luke","ec2300","luke@qmul.ac.uk","luke","luke123","student"))
-userRegistry.addUser(new User("Darena","ec34456","darena@qmul.ac.uk","darena","darena","student"))
+userRegistry.addUser(new User("Darena","ec34456","darena@qmul.ac.uk","darena","darena123","student"))
 userRegistry.addUser(new User("Yousuf","ec2349","yousuf@qmul.ac.uk","yousuf","yousuf123","student"))
 userRegistry.addUser(new User("Mo","ec12121","mo@qmul.ac.uk","mo","mo1223","student"))
 userRegistry.addUser(new User("Finn","ec9876","student2@qmul.ac.uk","finn","finn123","student"))
