@@ -31,14 +31,14 @@ function ManageTickets() {
       setCurrentTicket("");
       setInfo("");
       setDetails("");
-      setTitle("");
+      setTitle("Select a Ticket");
     }
   }
 
   const [title, setTitle] = useState("Select a Ticket");
   const [info, setInfo] = useState("");
   const [details, setDetails] = useState("");
-  const [currentTicket, setCurrentTicket] = useState(0);
+  const [currentTicket, setCurrentTicket] = useState("");
   const [feedback, setFeedback] = useState("");
   const allTickets = getAllTickets();
 
@@ -70,9 +70,14 @@ function ManageTickets() {
               <div className="ec-information"> {info}</div>
               <div className="ec-details">{details}</div>
             </div>
-            <button className="admin-ec-button" onClick={handleDelete}>
-              Close Ticket
-            </button>
+            {currentTicket !== "" &&
+              <input type="text" class="ticketFeedback" onChange={(e) => setFeedback(e.target.value)}></input>
+            }
+            {currentTicket !=="" &&
+              <button className="admin-ec-button" onClick={handleDelete}>
+                Close Ticket
+              </button>
+            }
           </div>
         </div>
       </div>
