@@ -17,6 +17,7 @@ class CurrentUserManager {
     }
 
     getCurrent(){
+        this.load()
         return this.user
     }
 
@@ -24,15 +25,18 @@ class CurrentUserManager {
         console.log("saving user as ", this.user)
         localStorage.setItem("currentUser", JSON.stringify(this.user))
     }
-
+    
     load(){
         try {
            const user = localStorage.getItem("currentUser");
             if (user) {
                 this.user = JSON.parse(user);
+            } else {
+                this.user = null;
             }
         } catch (err) {
             console.error("Error loading data:", err);
+            this.user = null;
         }  
     }
 

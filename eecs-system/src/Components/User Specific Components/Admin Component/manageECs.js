@@ -72,7 +72,7 @@ function ManageECs() {
               {ecs.map((ec, index) => (
                 <div key={index}>
                   <button
-                    className="ec-title-button-side"
+                    className="ec-title-button-side-1"
                     onClick={() => updateContent(ec, index)}
                   >
                     {ec.user.name} - {ec.title}
@@ -84,10 +84,11 @@ function ManageECs() {
 
           <div className="ec-title grid-col-span-2 box">{title}</div>
           <div className="ec-content grid-col-span-2 box">
-            {info}
-            <br></br>
-            Details<br></br>
-            {details}
+            <div>
+              <div className="ec-information"> {info}</div>
+              <div className="ec-details">{details}</div>
+            </div>
+
             <div>
               <br></br>
               <br></br>
@@ -98,6 +99,8 @@ function ManageECs() {
                   Accpet EC
                 </button>
               )}
+              <br></br>
+              <br></br>
               {currentEc !== "" &&
                 ecRegistry.getEC(currentEc) &&
                 ecRegistry.getEC(currentEc).selfCertified === false && (
