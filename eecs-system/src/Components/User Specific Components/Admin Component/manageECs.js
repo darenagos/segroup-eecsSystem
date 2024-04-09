@@ -55,7 +55,7 @@ function ManageECs() {
     }
   }
 
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("Select an EC");
   const [info, setInfo] = useState("");
   const [details, setDetails] = useState("");
   const [currentEc, setCurrentEc] = useState("");
@@ -63,48 +63,44 @@ function ManageECs() {
 
   return (
     <div>
-      <div className="padding-grid">
-        <div className="grid-container">
+      <div className="padding-grid-admin">
+        <div className="grid-container-admin">
           <div className="grid-row-span-2">
-            <div className="box" id="ecOrTicketList">
-              <a>List of ECs:</a>
-              <br></br>
-              {ecs.map((ec, index) => (
-                <div key={index}>
-                  <button
-                    className="ec-title-button-side-1"
-                    onClick={() => updateContent(ec, index)}
-                  >
-                    {ec.user.name} - {ec.title}
-                  </button>
-                </div>
-              ))}{" "}
+            <div className="box-admin">
+              <div className="scrollable-view-admin">
+                <a>List of ECs:</a>
+                <br></br>
+                {ecs.map((ec, index) => (
+                  <div key={index}>
+                    <button
+                      className="ec-title-button-side-1"
+                      onClick={() => updateContent(ec, index)}
+                    >
+                      {ec.user.name} - {ec.title}
+                    </button>
+                  </div>
+                ))}{" "}
+              </div>
             </div>
           </div>
 
-          <div className="ec-title grid-col-span-2 box">{title}</div>
-          <div className="ec-content grid-col-span-2 box">
+          <div className="ec-title grid-col-span-2 box-admin">{title}</div>
+          <div className="ec-content grid-col-span-2 box-admin">
             <div>
               <div className="ec-information"> {info}</div>
               <div className="ec-details">{details}</div>
             </div>
 
-            <div>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
+            <div className="admin-button-container">
               {currentEc !== "" && ecRegistry.getEC(currentEc) && (
-                <button className="deleteButton" onClick={ApproveButton}>
-                  Accpet EC
+                <button className="admin-ec-button" onClick={ApproveButton}>
+                  Accept EC
                 </button>
               )}
-              <br></br>
-              <br></br>
               {currentEc !== "" &&
                 ecRegistry.getEC(currentEc) &&
                 ecRegistry.getEC(currentEc).selfCertified === false && (
-                  <button className="deleteButton" onClick={RejectButton}>
+                  <button className="admin-ec-button" onClick={RejectButton}>
                     Reject EC
                   </button>
                 )}

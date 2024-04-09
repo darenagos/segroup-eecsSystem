@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./admin.css";
 
 import ticketRegistry from "../../../Managers/TicketRegistry";
-import closedRegistry from "../../../Managers/closedTicketsRegistry"
+import closedRegistry from "../../../Managers/closedTicketsRegistry";
 
 function ManageTickets() {
   function updateContent(ticket, index) {
@@ -22,7 +22,10 @@ function ManageTickets() {
 
   function handleDelete() {
     if (currentTicket !== "") {
-      closedRegistry.addTicket(ticketRegistry.getTicket(currentTicket), feedback);
+      closedRegistry.addTicket(
+        ticketRegistry.getTicket(currentTicket),
+        feedback
+      );
       setFeedback("");
       ticketRegistry.deleteEc(currentTicket);
       setCurrentTicket("");
@@ -32,48 +35,44 @@ function ManageTickets() {
     }
   }
 
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("Select a Ticket");
   const [info, setInfo] = useState("");
   const [details, setDetails] = useState("");
   const [currentTicket, setCurrentTicket] = useState(0);
   const [feedback, setFeedback] = useState("");
   const allTickets = getAllTickets();
 
-
   return (
     <div>
-      <div className="padding-grid">
-        <div className="grid-container">
+      <div className="padding-grid-admin">
+        <div className="grid-container-admin">
           <div className="grid-row-span-2">
-            <div className="box" id = "ecOrTicketList">
-              <a>List of Tickets: </a>
-              <br></br>
-              {allTickets.map((ticket, index) => (
-                <button
-                  className="ec-title-button-side-1"
-                  onClick={() => updateContent(ticket, index)}
-                  key={index}
-                >
-                  {ticket.user.name} - {ticket.title}
-                </button>
-              ))}
+            <div className="box-admin">
+              <div className="scrollable-admin">
+                <a>List of Tickets: </a>
+                <br></br>
+                {allTickets.map((ticket, index) => (
+                  <button
+                    className="ec-title-button-side-1"
+                    onClick={() => updateContent(ticket, index)}
+                    key={index}
+                  >
+                    {ticket.user.name} - {ticket.title}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="ec-title grid-col-span-2 box">{title}</div>
-          <div className="ec-content grid-col-span-2 box">
+          <div className="ec-title grid-col-span-2 box-admin">{title}</div>
+          <div className="ec-content grid-col-span-2 box-admin">
             <div>
               <div className="ec-information"> {info}</div>
               <div className="ec-details">{details}</div>
             </div>
-
-            <form>
-              <br></br><br></br><br></br><br></br>
-              <input type="text" class="ticketFeedback" onChange={(e) => setFeedback(e.target.value)}></input>
-            </form>
-            <button  className="deleteButton"
-                onClick= {handleDelete}
-              >Close Ticket</button>
+            <button className="admin-ec-button" onClick={handleDelete}>
+              Close Ticket
+            </button>
           </div>
         </div>
       </div>
