@@ -64,7 +64,6 @@ function DisplayHomePageInformation() {
             <div className="scrollable-grid">
               <div className="homep">
                 <h2 className="home-heading">Manage ECs and Tickets</h2>
-                <br></br>
                 <p className="home-heading-three">Current Number of ECs:</p>
                 <div className="current-number">{numberOfECs}</div>
                 <p className="home-heading-three">Current Number of Tickets:</p>
