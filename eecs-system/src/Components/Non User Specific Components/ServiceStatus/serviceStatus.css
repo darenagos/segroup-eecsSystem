@@ -18,11 +18,14 @@
 }
 
 #service_h1{
-    text-align: left;
+    text-align: center;
+    padding-top: 5vh;
+    font-size: x-large;
 }
 
 .entry2{
-    color: gray;
+    color: rgb(105, 105, 105);
+    
 }
 
 #footer{
@@ -35,6 +38,7 @@
     border-spacing: 0;
     margin-top: 5%;
     margin-bottom: 8%;
+    
 
 }
 
@@ -49,6 +53,8 @@
 
 .gray {
     background-color: rgb(212, 212, 212);
+    
+
 }
 
 

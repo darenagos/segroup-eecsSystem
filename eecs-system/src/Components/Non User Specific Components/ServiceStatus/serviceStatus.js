@@ -14,6 +14,7 @@ function ServiceStatus() {
       <div id="service_header">
         <h2 id="service_h1">Service Status</h2>
       </div>
+      <br></br>
       <div id="modified">Last modified: 14th March, 2024 at 11:35am</div>
 
       <div id="services">

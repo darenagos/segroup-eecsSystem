@@ -1,4 +1,4 @@
-.padding-grid-view-ec{
+.padding-grid-update-service{
 
     padding: 5%;
     margin-left: 15%;
@@ -8,7 +8,7 @@
 
 
 }
-.grid-container-view-ec{
+.grid-container-update-service{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto 1fr;
@@ -28,11 +28,10 @@
 }
 
 
-.box-view-ec {
+.box-update-service {
     background: rgba(255, 255, 255);
     padding: 10px;
     border-radius: 15px;
-    /* box-shadow: 0px 1px 7px rgb(121, 118, 115); */
     box-shadow: 0px 1px 7px rgb(193, 192, 190);
     
     
@@ -68,7 +67,7 @@
 
 }
 
-.scrollable-view-ec {
+.scrollable-update-service {
     max-height: 93vh;
 
 }
@@ -81,7 +80,7 @@ button{
     box-shadow: none;
 }
 
-.ec-title-button-side-1{
+.service-title-button-side-1{
 
     text-align: center;
     background-color: rgba(187, 185, 181, 0.3);
@@ -92,12 +91,13 @@ button{
     justify-self: center;
     width: 100%;
     font-size: medium;
+    
    
     
 }
 
 
-.ec-title-button-side-1:hover{
+.service-title-button-side-1:hover{
     background-color: rgba(187, 185, 181, 0.5);
     border-left: 4px solid #0D3273;
 
@@ -106,7 +106,7 @@ button{
 
 
 
-.ec-title {
+.service-title {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,54 +118,37 @@ button{
 }
 
 
-.ec-content{
+.service-content{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto; /* First row covers 20%, second row covers 80% */
-  
+    gap: 5px;
+    
 
     padding: 3%;
+   
 
   }
   
-.ec-information{
-    padding: 5%;
-    border-bottom: 2px solid rgba(13, 50, 115, 0.3);
+.service-name{
     
+    padding-top: 3%;
+    width: 100%;
+
 
 }
 
-.ec-details{
-    padding: 5%;
+.service-details{
+    padding-top: 3%;
     /* overflow-x: auto; Enable horizontal scrolling */
+    width: 100%;
     
-  
-    
-    padding: 2%; 
-
+ 
 }
 
-.close-ec-button{
-    
-    border-radius: 20px;
-    background-color: var(--blue);
-    box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.25);
-    color: white;
-    cursor: pointer;
-    width: 25%;
-
-    align-self: end;
-    margin-bottom: 20px;
-    margin-left: auto; /* Center horizontally */
-    margin-right: auto; /* Center horizontally */
-
-}
-
-.close-ec-button:hover{
-    background-color: var(--purple);
-    color: white;
-
-    box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.25);
+.width-100{
+    width: 100%;
+    box-shadow: 1px 2px 7px rgb(193, 192, 190);
 }
 
 
@@ -177,6 +160,61 @@ button{
 .grid-row-span-2{
     grid-row: span 2;
 }
+
+.radio-input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+.service-radio-input {
+    appearance: none; /* remove default appearance */
+
+    width: 16px; 
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 50%; /* making it circular */
+    outline: none; /* remove outline on focus */
+    cursor: pointer;
+    margin-right: 5px;
+    margin-left:7px;
+    vertical-align: middle;
+    
+
+  }
+  
+
+  .service-radio-input:checked {
+    border-color: #C10077;; 
+    background-color: #C10077;; 
+  }
+  
+
+  .update-service-button{
+    
+    border-radius: 20px;
+    background-color: var(--blue);
+    box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.25);
+    color: white;
+    cursor: pointer;
+    width: 30%;
+
+    /* display: block; */
+    margin: 10%;
+    margin-bottom: 20px;
+}
+
+.update-service-button:hover{
+    background-color: var(--purple);
+    color: white;
+
+    box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.25);
+}
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./admin.css";
 
-import ecRegistry  from "../../../Managers/ECRegistry";
+import ecRegistry from "../../../Managers/ECRegistry";
 import myOutcome from "../../../Managers/ecOutcomeRegistry";
 
 function ManageECs() {
@@ -18,9 +18,9 @@ function ManageECs() {
           " - SELF CERTIFIED"
       );
     }
-    setInfo(ec.title + " - "  + ec.date);
+    setInfo(ec.title + " - " + ec.date);
     setDetails(ec.details);
-    setCurrentEc(index)
+    setCurrentEc(index);
 
     //console.log(ecRegistry.getEcIndex(currentEc))
   }
@@ -33,8 +33,8 @@ function ManageECs() {
     return ecs;
   }
 
-  function ApproveButton(){
-    if (currentEc !== ""){
+  function ApproveButton() {
+    if (currentEc !== "") {
       myOutcome.addEC(ecRegistry.getEC(currentEc), "Accepted");
       ecRegistry.deleteEc(currentEc);
       setCurrentEc("");
@@ -44,8 +44,8 @@ function ManageECs() {
     }
   }
 
-  function RejectButton(){
-    if (currentEc !== ""){
+  function RejectButton() {
+    if (currentEc !== "") {
       myOutcome.addEC(ecRegistry.getEC(currentEc), "Rejected");
       ecRegistry.deleteEc(currentEc);
       setCurrentEc("");
@@ -58,7 +58,7 @@ function ManageECs() {
   const [title, setTitle] = useState("");
   const [info, setInfo] = useState("");
   const [details, setDetails] = useState("");
-  const [currentEc, setCurrentEc] = useState("")
+  const [currentEc, setCurrentEc] = useState("");
   const ecs = getAllEC();
 
   return (
@@ -66,17 +66,17 @@ function ManageECs() {
       <div className="padding-grid">
         <div className="grid-container">
           <div className="grid-row-span-2">
-            <div className="box" id = "ecOrTicketList">
+            <div className="box" id="ecOrTicketList">
               <a>List of ECs:</a>
               <br></br>
               {ecs.map((ec, index) => (
-                <div key = {index}>
-                <button 
-                  className="ec-title-button-side"
-                  onClick={() => updateContent(ec, index)}
-                >
-                  {ec.user.name} - {ec.title}
-                </button>
+                <div key={index}>
+                  <button
+                    className="ec-title-button-side"
+                    onClick={() => updateContent(ec, index)}
+                  >
+                    {ec.user.name} - {ec.title}
+                  </button>
                 </div>
               ))}{" "}
             </div>
@@ -88,19 +88,23 @@ function ManageECs() {
             <br></br>
             Details<br></br>
             {details}
-            
             <div>
-            <br></br><br></br><br></br><br></br>
-            {currentEc !== "" && ecRegistry.getEC(currentEc) && (
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              {currentEc !== "" && ecRegistry.getEC(currentEc) && (
                 <button className="deleteButton" onClick={ApproveButton}>
                   Accpet EC
                 </button>
               )}
-            {currentEc !== "" && ecRegistry.getEC(currentEc) && ecRegistry.getEC(currentEc).selfCertified === false && (
-              <button className="deleteButton" onClick={RejectButton}>
-                Reject EC
-              </button>
-            )}
+              {currentEc !== "" &&
+                ecRegistry.getEC(currentEc) &&
+                ecRegistry.getEC(currentEc).selfCertified === false && (
+                  <button className="deleteButton" onClick={RejectButton}>
+                    Reject EC
+                  </button>
+                )}
             </div>
           </div>
         </div>

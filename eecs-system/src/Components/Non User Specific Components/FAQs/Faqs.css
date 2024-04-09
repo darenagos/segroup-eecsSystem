@@ -8,23 +8,27 @@
 
     max-height: 93vh;
     overflow-y: auto;
+    
 }
 
 .faq-content{
     width: 80%;
+    
 }
 
 .faq-header {
     margin-bottom: 30px;
     text-align: center;
+    font-size: x-large;
 }
 
 
 .item{
     background-color: rgb(251, 251, 251);
     border-radius: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     padding: 10px 20px;
+    box-shadow: 0px 1px 7px rgb(212, 212, 210);
 }
 
 .title{
