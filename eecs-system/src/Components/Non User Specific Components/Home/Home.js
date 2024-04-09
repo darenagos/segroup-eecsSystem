@@ -60,43 +60,33 @@ function DisplayHomePageInformation() {
     return (
       <div>
         <div className="padding-grid-home">
-          <div className="grid-container-home-technician home-box ">
-            <div>
+          <div className="grid-container-home-technician home-box">
+            <div className="scrollable-grid">
               <div className="homep">
                 <h2 className="home-heading">Manage ECs and Tickets</h2>
-                <p>
-                  <br></br>
-                  <p className="home-heading-three">Current Number of ECs:</p>
-                  <div className="current-number">{numberOfECs}</div>
-                  <p className="home-heading-three">
-                    Current Number of Tickets:
-                  </p>
-                  <div className="current-number">{numberOfTickets}</div>
+                <br></br>
+                <p className="home-heading-three">Current Number of ECs:</p>
+                <div className="current-number">{numberOfECs}</div>
+                <p className="home-heading-three">Current Number of Tickets:</p>
+                <div className="current-number">{numberOfTickets}</div>
 
-                  <div className="admin-home-text">
-                    <p className="home-heading-three">
-                      Manage Extenuating Circumstances (ECs)
-                    </p>{" "}
-                    <br></br>
-                    Admins oversee the process for handling personal or medical
-                    emergencies, family crises, and other significant life
-                    events. Students can submit EC requests here, providing
-                    necessary documentation for review by our academic
-                    administration team. Accommodations may be granted based on
-                    individual circumstances.
-                  </div>
-                  <div className="admin-home-text">
-                    <p className="home-heading-three">Manage Tickets</p>{" "}
-                    <br></br>Admins handle issues related to course material
-                    access, assignment submissions, and technical problems.
-                    Students can submit detailed tickets for prompt review and
-                    resolution.
-                  </div>
-                  {/* <div className="admin-home-text">
-                    Thank you for your crucial role in managing these processes
-                    effectively.
-                  </div> */}
-                </p>
+                <div className="admin-home-text">
+                  <p className="home-heading-three">
+                    Manage Extenuating Circumstances (ECs)
+                  </p>
+                  Admins oversee the process for handling personal or medical
+                  emergencies, family crises, and other significant life events.
+                  Students can submit EC requests here, providing necessary
+                  documentation for review by our academic administration team.
+                  Accommodations may be granted based on individual
+                  circumstances.
+                </div>
+                <div className="admin-home-text">
+                  <p className="home-heading-three">Manage Tickets</p>
+                  Admins handle issues related to course material access,
+                  assignment submissions, and technical problems. Students can
+                  submit detailed tickets for prompt review and resolution.
+                </div>
               </div>
             </div>
           </div>
@@ -107,7 +97,7 @@ function DisplayHomePageInformation() {
     return (
       <div>
         <div className="padding-grid-home">
-          <div className="grid-container-home-technician home-box ">
+          <div className="grid-container-home-technician home-box">
             <div>
               <div className="homep">
                 <h2 className="home-heading">Update FAQs and Services</h2>
