@@ -184,8 +184,16 @@ button{
     grid-row: span 2;
 }
 
-.ticketFeedback{
+.ticketFeedback {
     width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--grey);
+    margin-bottom: 7px;
+    background: #f8f4ee;
+    box-shadow: 0px 1px 7px rgb(230, 227, 227);
+    padding: 10px;
     height: 100%;
-}
+    resize: none;
+  }
+  
 

@@ -70,14 +70,22 @@ function ManageTickets() {
               <div className="ec-information"> {info}</div>
               <div className="ec-details">{details}</div>
             </div>
-            {currentTicket !== "" &&
-              <input type="text" class="ticketFeedback" onChange={(e) => setFeedback(e.target.value)}></input>
-            }
-            {currentTicket !=="" &&
+            <div>
+              <p>Enter ticket feedback for student:</p>
+            </div>
+
+            {currentTicket !== "" && (
+              <textarea
+                type="text"
+                class="ticketFeedback"
+                onChange={(e) => setFeedback(e.target.value)}
+              ></textarea>
+            )}
+            {currentTicket !== "" && (
               <button className="admin-ec-button" onClick={handleDelete}>
                 Close Ticket
               </button>
-            }
+            )}
           </div>
         </div>
       </div>
