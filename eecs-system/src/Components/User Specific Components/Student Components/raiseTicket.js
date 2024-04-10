@@ -17,27 +17,35 @@ class Ticket {
 
 function RaiseTicket() {
   const pressSubmit = async (event) => {
-    if ((title !== "") & (details !== "") & (type !== "")) {
-      event.preventDefault();
+    event.preventDefault();
 
-      await ticketRegistry.addTicket(
-        new Ticket(
-          currentUserManager.getCurrent(),
-          Date(),
-          title,
-          type,
-          details
-        )
-      );
-      Array.from(document.querySelectorAll("input")).forEach(
-        (input) => (input.value = "")
-      );
+    if (title !== "" && details !== "" && type !== "") {
+      try {
+        await ticketRegistry.addTicket(
+          new Ticket(
+            currentUserManager.getCurrent(),
+            new Date(),
+            title,
+            type,
+            details
+          )
+        );
 
-      setTitle("");
-      setDetails("");
-      setType("");
+        // Reset form inputs
+        Array.from(document.querySelectorAll("input")).forEach(
+          (input) => (input.value = "")
+        );
+        setTitle("");
+        setDetails("");
+        setType("");
+        // show alert on submission
+        alert("Ticket submitted successfully!");
+      } catch (error) {
+        console.error("Error submitting ticket:", error);
+        alert("Failed to submit ticket. Please try again.");
+      }
     } else {
-      console.log("Not all fields filled");
+      alert("Please fill out all required fields.");
     }
   };
 

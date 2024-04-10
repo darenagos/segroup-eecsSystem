@@ -20,44 +20,61 @@ class EC {
 
 function CreateEC() {
   const getMaxCount = () => {
-    const maxCount = localStorage.getItem(`maxCount-${currentUserManager.getCurrent().id}`);
+    const maxCount = localStorage.getItem(
+      `maxCount-${currentUserManager.getCurrent().id}`
+    );
     return maxCount ? parseInt(maxCount) : 3;
   };
 
   const setMaxCount = (count) => {
-    localStorage.setItem(`maxCount-${currentUserManager.getCurrent().id}`, JSON.stringify(count))
+    localStorage.setItem(
+      `maxCount-${currentUserManager.getCurrent().id}`,
+      JSON.stringify(count)
+    );
   };
 
   const pressSubmit = async (event) => {
-    if ((title !== "") & (module !== "") & ((details !== "") | selfCertified)) {
-      event.preventDefault();
+    event.preventDefault();
+
+    if (title !== "" && module !== "" && (details !== "" || selfCertified)) {
       const currentUser = currentUserManager.getCurrent();
       const maxCount = getMaxCount();
-      if (selfCertified && getMaxCount() > 0) {
+
+      if (selfCertified && maxCount > 0) {
         currentUser.certifiedCount--;
-        setMaxCount(maxCount-1);
+        setMaxCount(maxCount - 1);
         currentUserManager.setUser(currentUser);
       }
-      await ecRegistry.addEC(
-        new EC(
-          currentUserManager.getCurrent(),
-          otherModule !== "" ? otherModule : module,
-          title,
-          Date(),
-          details,
-          selfCertified
-        )
-      );
-      //await console.log(ecRegistry.getEC(-1).details)
-      // await setSelfCertified(false)
 
-      Array.from(document.querySelectorAll("input")).forEach(
-        (input) => (input.value = "")
-      );
-      setModule("");
-      setTitle("");
-      setDetails("");
-      setSelfCertified(false);
+      try {
+        await ecRegistry.addEC(
+          new EC(
+            currentUserManager.getCurrent(),
+            otherModule !== "" ? otherModule : module,
+            title,
+            new Date(),
+            details,
+            selfCertified
+          )
+        );
+
+        // Reset form inputs
+        Array.from(document.querySelectorAll("input")).forEach(
+          (input) => (input.value = "")
+        );
+        setModule("");
+        setTitle("");
+        setDetails("");
+        setSelfCertified(false);
+
+        // show alert on submission
+        alert("EC submitted successfully!");
+      } catch (error) {
+        console.error("Error submitting EC:", error);
+        alert("Failed to submit EC. Please try again.");
+      }
+    } else {
+      alert("Please fill out all required fields.");
     }
   };
 
@@ -170,18 +187,18 @@ function CreateEC() {
 
                 <div className="brief-description-ec">
                   Note: You have up to three self-certified extensions available
-                  <br/>
+                  <br />
                   Currently you have {getMaxCount()} self-certified ecs left
                 </div>
-                {getMaxCount() > 0 &&(
+                {getMaxCount() > 0 && (
                   <input
-                  className="self-certified"
-                  type="checkbox"
-                  name="selfCertified"
-                  value={selfCertified}
-                  checked={selfCertified}
-                  onChange={(e) => setSelfCertified(!selfCertified)}
-                />
+                    className="self-certified"
+                    type="checkbox"
+                    name="selfCertified"
+                    value={selfCertified}
+                    checked={selfCertified}
+                    onChange={(e) => setSelfCertified(!selfCertified)}
+                  />
                 )}
               </label>
               <input

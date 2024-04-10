@@ -19,12 +19,12 @@ function StudentNavbar() {
             </li>
             <li>
               <Link to="view-my-ECs">
-                <button>View My ECs</button>
+                <button>View Pending ECs</button>
               </Link>
             </li>
             <li>
               <Link to="view-ec-outcome">
-                <button>View EC Outcome</button>
+                <button>View Resolved ECs</button>
               </Link>
             </li>
             <li>
@@ -34,12 +34,12 @@ function StudentNavbar() {
             </li>
             <li>
               <Link to="view-my-tickets">
-                <button>View My Tickets</button>
+                <button>View Pending Tickets</button>
               </Link>
             </li>
             <li>
               <Link to="view-closed-tickets">
-                <button>View Closed Tickets</button>
+                <button>View Resolved Tickets</button>
               </Link>
             </li>
           </ul>
