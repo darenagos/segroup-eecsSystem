@@ -40,7 +40,7 @@ function ManageECs() {
       setCurrentEc("");
       setInfo("");
       setDetails("");
-      setTitle("");
+      setTitle("Select an EC");
     }
   }
 
@@ -51,7 +51,7 @@ function ManageECs() {
       setCurrentEc("");
       setInfo("");
       setDetails("");
-      setTitle("");
+      setTitle("Select an EC");
     }
   }
 
@@ -87,7 +87,10 @@ function ManageECs() {
           <div className="ec-title grid-col-span-2 box-admin">{title}</div>
           <div className="ec-content grid-col-span-2 box-admin">
             <div>
+            {currentEc !== "" && (<h3>EC Information:</h3>)}
               <div className="ec-information"> {info}</div>
+              <br></br>
+              {currentEc !== "" && (<h3>Details:</h3>)}
               <div className="ec-details">{details}</div>
             </div>
 

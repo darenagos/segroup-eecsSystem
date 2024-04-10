@@ -21,12 +21,14 @@ function ViewMyTickets() {
   const [title, setTitle] = useState("Select a Ticket");
   const [type, setType] = useState("");
   const [details, setDetails] = useState("");
+  const [selected, setSelected] = useState("");
   const myTickets = GetMyTickets();
 
   function UpdateContent(ticket) {
     setType(ticket.type);
     setTitle(ticket.title);
     setDetails(ticket.details);
+    setSelected(ticket);
   }
 
   return (
@@ -54,7 +56,10 @@ function ViewMyTickets() {
           </div>
           <div className="ticket-content grid-col-span-2 box-view-ticket">
             <div>
+            {selected !== "" && (<h3>Type of Ticket:</h3>)}
               <div className="ticket-type">{type}</div>
+              <br></br>
+              {selected !== "" && (<h3>Details:</h3>)}
               <div className="ticket-details">{details}</div>
             </div>
           </div>

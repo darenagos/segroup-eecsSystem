@@ -35,11 +35,13 @@ function ViewMyECs() {
     }
     setInfo(ec.title + " - " + ec.date);
     setDetails(ec.details);
+    setSelected(ec);
   }
 
   const [title, setTitle] = useState("Select an EC");
   const [info, setInfo] = useState("");
   const [details, setDetails] = useState();
+  const [selected, setSelected] = useState("");
   const myEcs = getMyEcs();
 
   return (
@@ -65,7 +67,10 @@ function ViewMyECs() {
           <div className="ec-title grid-col-span-2 box-view-ec">{title}</div>
           <div className="grid-col-span-2 ec-content box-view-ec">
             <div>
+            {selected !== "" && (<h3>Title of EC:</h3>)}
               <div className="ec-information"> {info}</div>
+              <br></br>
+              {selected !== "" && (<h3>Details:</h3>)}
               <div className="ec-details">{details}</div>
             </div>
           </div>
