@@ -66,10 +66,10 @@ function UpdateFAQ() {
 
   return (
     <div className="padding-grid-update-faq">
-      <div>
-        <h2 className="update-faqs-main-title">Update FAQs</h2>
-      </div>
       <div className="box-update-faq">
+        <div>
+          <p className="update-faqs-main-title">Update FAQs</p>
+        </div>
         <div className=" grid-container-update-faq">
           <div>
             <p className="update-faq-form-section-title">
