@@ -25,14 +25,17 @@ function EcOutcome() {
     }
     return myEC;
   }
+  
 
   const [title, setTitle] = useState("Select an EC");
   const [type, setInfo] = useState("");
   const [details, setDetails] = useState("");
   const [outcome, setOutcome] = useState("");
+  const [selected, setSelected] = useState("");
   const allEC = GetMyEC();
 
   function updateContent(item) {
+  
     if (item.ec.selfCertified === false) {
       setTitle(item.ec.user.name + " (" + item.ec.user.id + ") : " + item.ec.module);
     } else {
@@ -45,6 +48,7 @@ function EcOutcome() {
           " - SELF CERTIFIED"
       );
     }
+    setSelected(item);
     setInfo(item.ec.title + " - " + item.ec.date);
     setDetails(item.ec.details);
     setOutcome(item.outcome)
@@ -74,8 +78,12 @@ function EcOutcome() {
           </div>
           <div className="ticket-content grid-col-span-2 box-view-ticket">
             <div>
+            {selected !== "" && (<h3>Title of EC:</h3>)}
               <div className="ticket-type">{type}</div>
+              <br></br>
+              {selected !== "" && (<h3>Details:</h3>)}
               <div className="ticket-details">{details}</div>
+              {selected !== "" && (<h3>EC Outcome:</h3>)}
               <div className="ticket-details">{outcome}</div>
             </div>
           </div>
