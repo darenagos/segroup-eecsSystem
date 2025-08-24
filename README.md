@@ -6,8 +6,6 @@ This is a university project in which the brief was to design an application tha
 
 - [Tech Stack](#tech-stack)
 - [Project Overview](#project-overview)
-- [Features](#features)
-- [User Roles & Flow](#user-roles--flow)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -26,47 +24,13 @@ This is a university project in which the brief was to design an application tha
 
 ## Project Overview
 
-- **Students** can submit EC requests through the portal, providing details and supporting information for their case.
-- **Admins** review submitted ECs and have the authority to approve or disapprove each request.
-- The system also includes features for managing service status, FAQs, and support tickets.
+This system allows:
 
-## Features
+- **Students** to submit EC requests through the portal, providing details and supporting evidence, view the status and outcomes of their ECs, and raise support tickets for technical issues.
+- **Admins** to review, filter, and manage all submitted ECs, approve or disapprove requests and update their status.
+- **Technicians** to view, respond to, and close tickets, update and manage FAQ content, and monitor the status of key system services (e.g., IT Service Desk System, Library Systems).
 
-- **Student EC Submission:**
-
-  - Students can fill out and submit a form to request deadline extensions or adjustments, providing details and uploading supporting evidence.
-  - Students can view the status of their submitted ECs and see outcomes once reviewed.
-
-- **Admin Dashboard:**
-
-  - Admins can view, filter, and manage all submitted ECs.
-  - Admins can approve or disapprove EC requests, and update the status of each case.
-
-- **Ticketing System:**
-
-  - Students and users can raise support tickets for technical or process-related issues.
-  - Technicians can view, respond to, and close tickets.
-
-- **Service Status Monitoring:**
-
-  - Displays the current status of key system services (e.g., IT Service Desk System, Library Systems) to all users.
-
-- **FAQ Management:**
-
-  - Frequently Asked Questions are available for students and staff.
-  - Technicians can update and manage FAQ content.
-
-- **User-Specific Homepages and Navigation:**
-  - Different dashboards and navigation menus for students, admins, and technicians, tailored to their roles and permissions.
-
-## User Roles & Flow
-
-- **Students:**
-  - Log in to the portal, submit ECs, view their EC history and outcomes, and raise tickets.
-- **Admins:**
-  - Access the admin dashboard to review and process ECs.
-- **Technicians:**
-  - Update service statuses, and manage FAQs and tickets.
+The application features user-specific homepages and navigation, with dashboards tailored to students, admins, and technicians.
 
 ## Getting Started
 
