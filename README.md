@@ -96,7 +96,7 @@ This will open the app in your browser at [http://localhost:3000](http://localho
 
 Below are screenshots demonstrating various parts of the system:
 
-<!-- Student View screenshots -->
+Student View screenshots:
 
 ![Student Homepage](images/Screenshot%202025-08-24%20102148.png)
 ![EC Submission Form](images/Screenshot%202025-08-24%20101659.png)
@@ -104,12 +104,12 @@ Below are screenshots demonstrating various parts of the system:
 ![Service Status Page](images/Screenshot%202025-08-24%20101935.png)
 ![FAQ Page](images/Screenshot%202025-08-24%20102009.png)
 
-<!-- Admin View screenshots -->
+Admin View screenshots:
 
 ![Admin Homepage](images/Screenshot%202025-08-24%20102045.png)
 ![ECs Management Page](images/Screenshot%202025-08-24%20102105.png)
 
-<!-- Technician View screenshots -->
+Technician View screenshots:
 
 ![Technician: Update FAQ](images/Screenshot%202025-08-24%20104027.png)
 ![Technician: Update Services](images/Screenshot%202025-08-24%20104053.png)
