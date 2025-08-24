@@ -99,21 +99,21 @@ Below are screenshots demonstrating various parts of the system:
 
 Student View screenshots:
 
-![Student Homepage](images/Screenshot%202025-08-24%20102148.png)
-![EC Submission Form](images/Screenshot%202025-08-24%20101659.png)
-![View Pending ECs](images/Screenshot%202025-08-24%20101815.png)
-![Service Status Page](images/Screenshot%202025-08-24%20101935.png)
-![FAQ Page](images/Screenshot%202025-08-24%20102009.png)
+![Student Homepage](eecs-system/images/Screenshot%202025-08-24%20102148.png)
+![EC Submission Form](eecs-system/images/Screenshot%202025-08-24%20101659.png)
+![View Pending ECs](eecs-system/images/Screenshot%202025-08-24%20101815.png)
+![Service Status Page](eecs-system/images/Screenshot%202025-08-24%20101935.png)
+![FAQ Page](eecs-system/images/Screenshot%202025-08-24%20102009.png)
 
 Admin View screenshots:
 
-![Admin Homepage](images/Screenshot%202025-08-24%20102045.png)
-![ECs Management Page](images/Screenshot%202025-08-24%20102105.png)
+![Admin Homepage](eecs-system/images/Screenshot%202025-08-24%20102045.png)
+![ECs Management Page](eecs-system/images/Screenshot%202025-08-24%20102105.png)
 
 Technician View screenshots:
 
-![Technician: Update FAQ](images/Screenshot%202025-08-24%20104027.png)
-![Technician: Update Services](images/Screenshot%202025-08-24%20104053.png)
+![Technician: Update FAQ](eecs-system/images/Screenshot%202025-08-24%20104027.png)
+![Technician: Update Services](eecs-system/images/Screenshot%202025-08-24%20104053.png)
 
 ## License
 
