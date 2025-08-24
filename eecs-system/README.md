@@ -1,74 +1,119 @@
-# Getting Started with Create React App
+# EECS System: Extenuating Circumstances Submission Portal
 
-first run:
+This project is a university web application designed to manage Extenuating Circumstances (ECs) for students. Extenuating Circumstances are situations where students can apply for extensions or adjustments to deadlines due to unforeseen or difficult personal circumstances.
 
-npm install react 
+## Table of Contents
 
-in the terminal, or u wont be able to run the project :)
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [User Roles & Flow](#user-roles--flow)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [Folder Structure](#folder-structure)
+- [License](#license)
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+- **Students** can submit EC requests through the portal, providing details and supporting information for their case.
+- **Admins** review submitted ECs and have the authority to approve or disapprove each request.
+- The system also includes features for managing service status, FAQs, and support tickets.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Student EC Submission:**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  - Students can fill out and submit a form to request deadline extensions or adjustments, providing details and uploading supporting evidence.
+  - Students can view the status of their submitted ECs and see outcomes once reviewed.
 
-### `npm test`
+- **Admin Dashboard:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - Admins can view, filter, and manage all submitted ECs.
+  - Admins can approve or disapprove EC requests, and update the status of each case.
 
-### `npm run build`
+- **Ticketing System:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - Students and users can raise support tickets for technical or process-related issues.
+  - Technicians can view, respond to, and close tickets.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Service Status Monitoring:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - Displays the current status of key system services (e.g., IT Service Desk System, Library Systems) to all users.
 
-### `npm run eject`
+- **FAQ Management:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  - Frequently Asked Questions are available for students and staff.
+  - Technicians can update and manage FAQ content.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **User-Specific Homepages and Navigation:**
+  - Different dashboards and navigation menus for students, admins, and technicians, tailored to their roles and permissions.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## User Roles & Flow
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Students:**
+  - Log in to the portal, submit ECs, view their EC history and outcomes, and raise tickets.
+- **Admins:**
+  - Access the admin dashboard to review and process ECs.
+- **Technicians:**
+  - Update service statuses, and manage FAQs and tickets.
 
-## Learn More
+## Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Prerequisites
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
 
-### Code Splitting
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Open a terminal and navigate to the `eecs-system` directory:
+   ```sh
+   cd eecs-system
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
 
-### Analyzing the Bundle Size
+### Running the Application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Start the development server:
 
-### Making a Progressive Web App
+```sh
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This will open the app in your browser at [http://localhost:3000](http://localhost:3000).
 
-### Advanced Configuration
+## Folder Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- `src/Components/` - React components (user-specific and non-user-specific)
+- `src/Managers/` - Logic for managing users, ECs, tickets, services, and FAQs
+- `public/` - Static assets and HTML template
 
-### Deployment
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Below are screenshots demonstrating various parts of the system:
 
-### `npm run build` fails to minify
+<!-- Student View screenshots -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Student Homepage](images/Screenshot%202025-08-24%20102148.png)
+![EC Submission Form](images/Screenshot%202025-08-24%20101659.png)
+![View Pending ECs](images/Screenshot%202025-08-24%20101815.png)
+![Service Status Page](images/Screenshot%202025-08-24%20101935.png)
+![FAQ Page](images/Screenshot%202025-08-24%20102009.png)
+
+<!-- Admin View screenshots -->
+
+![Admin Homepage](images/Screenshot%202025-08-24%20102045.png)
+![ECs Management Page](images/Screenshot%202025-08-24%20102105.png)
+
+<!-- Technician View screenshots -->
+
+![Technician: Update FAQ](images/Screenshot%202025-08-24%20104027.png)
+![Technician: Update Services](images/Screenshot%202025-08-24%20104053.png)
+
+## License
+
+This project is for educational purposes as part of a university assignment.
