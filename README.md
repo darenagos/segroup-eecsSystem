@@ -4,6 +4,7 @@ This is a university project in which the brief was to design an application tha
 
 ## Table of Contents
 
+- [Tech Stack](#tech-stack)
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [User Roles & Flow](#user-roles--flow)
@@ -14,6 +15,14 @@ This is a university project in which the brief was to design an application tha
 - [Folder Structure](#folder-structure)
 - [Screenshots](#screenshots)
 - [License](#license)
+
+## Tech Stack
+
+- **Frontend:** React (JavaScript, JSX, CSS)
+- **State Management:** Custom singleton managers and registries (object-oriented JavaScript)
+- **Styling:** CSS modules
+- **Package Management:** npm
+- **Build Tool:** Create React App
 
 ## Project Overview
 
