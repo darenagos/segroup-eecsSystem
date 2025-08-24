@@ -12,6 +12,7 @@ This project is a university web application designed to manage Extenuating Circ
   - [Installation](#installation)
   - [Running the Application](#running-the-application)
 - [Folder Structure](#folder-structure)
+- [Screenshots](#screenshots)
 - [License](#license)
 
 ## Project Overview
