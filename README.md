@@ -1,6 +1,6 @@
 # EECS System: Extenuating Circumstances Submission Portal
 
-This project is a university web application designed to manage Extenuating Circumstances (ECs) for students. Extenuating Circumstances are situations where students can apply for extensions or adjustments to deadlines due to unforeseen or difficult personal circumstances.
+This is a university project in which the brief was to design an application that manages Extenuating Circumstances (ECs) for students. Extenuating Circumstances are situations where students can apply for extensions or adjustments to deadlines due to unforeseen or difficult personal circumstances.
 
 ## Table of Contents
 
